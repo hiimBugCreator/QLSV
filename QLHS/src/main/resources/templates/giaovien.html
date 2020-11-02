@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <title>Sidebar Dashboard Template With Sub Menu</title>
+        <link rel="stylesheet" th:href="@{/css/stylequanli.css}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </head>
+    <body>
+
+        <!--wrapper start-->
+        <div class="wrapper">
+            <!--header menu start-->
+            <div class="header">
+                <div class="header-menu">
+                    <a th:href="@{/admin}" class="menu-btn">
+                    	<div class="title">GIAO VIEN</span></div>
+                    </a>
+                    <div class="sidebar-btn" onclick="toggleMenu();">
+                        <i class="fas fa-bars" ></i>
+                    </div>
+                </div>
+            </div>
+            <!--header menu end-->
+            <!--sidebar start-->
+            <div class="sidebar">
+                <div class="sidebar-menu">
+                    <li class="item" id="dashboard">
+                        <a th:href="@{/admin}" class="menu-btn">
+                            <i class="fas fa-tachometer-alt"></i><span>Thongke</span>
+                        </a>
+                    </li>
+                    <li class="item" id="profile">
+                        <a href="#profile" class="menu-btn">
+                            <i class="fas fa-user-graduate"></i><span>HocSinh</i> <i class="fas fa-chevron-down drop-down"></i></span>
+                        </a>
+                        <div class="sub-menu">
+                            <a href="tatcahocsinh.html"><i class="fas fa-user-graduate"></i><span>TatCaHocSinh</span></a>
+                            <a href="themhocsinh.html"><i class="fas fa-user-plus"></i><span>ThemHocSinh</span></a>
+                            <a href="timkiemhocsinh.html"><i class="fas fa-search"></i><span>TìmKiem</span></a>
+                        </div>
+                    </li>
+                    <li class="item" id="messages">
+                        <a href="#messages" class="menu-btn">
+                            <i class="fas fa-chalkboard-teacher"></i><span>GiaoVien</i> <i class="fas fa-chevron-down drop-down"></i></span>
+                        </a>
+                        <div class="sub-menu">
+                            <a href="#"><i class="fas fa-envelope"></i><span>New</span></a>
+                            <a href="#"><i class="fas fa-envelope-square"></i><span>Sent</span></a>
+                            <a href="#"><i class="fas fa-exclamation-circle"></i><span>Spam</span></a>
+                        </div>
+                    </li>
+                    <li class="item" id="settings">
+                        <a href="#settings" class="menu-btn">
+                            <i class="fas fa-calendar-alt"></i><span>Lop</span>
+                        </a>
+                    </li>
+                    <li class="item" id="settings">
+                        <a href="#settings" class="menu-btn">
+                            <i class="fas fa-calendar-alt"></i><span>ThoiKhoaBieu</span>
+                        </a>
+                    </li>
+                    <li class="item" id="settings">
+                        <a href="#settings" class="menu-btn">
+                            <i class="fas fa-print"></i><span>BangDiem</span>
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a href="#" class="menu-btn">
+                        <i class="fas fa-sign-out-alt"></i><div>Đăng Xuất khỏi tài khoản:</div><span th:text="${user.tentaikhoan}"></span>
+                    </a>
+                    </li>
+                </div>
+            </div>
+            <!--sidebar end-->
+            <!--main container start-->
+            <div class="main-container">
+                <div class="card">
+                   <div class="icon">
+                        <i class="fas fa-user-circle"></i>
+                        <p class="titel">HocSinh</p>
+                   </div>
+                   <span class="gach"></span>
+                   <div class="sl">
+                       <p>50000</p>
+                   </div>
+                </div>
+                <div class="card">
+                   <div class="icon">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                        <p class="titel">GiaoVien</p>
+                   </div>
+                   <span class="gach"></span>
+                   <div class="sl">
+                       <p>50000</p>
+                   </div>
+                </div>
+                <div class="card">
+                    <div class="icon">
+                        <i class="fas fa-calendar-alt"></i>
+                         <p class="titel">Lop</p>
+                    </div>
+                    <span class="gach"></span>
+                    <div class="sl">
+                        <p>50000</p>
+                    </div>
+                 </div>
+                 
+                 <div class="card2">
+                    <div class="claender">
+                        <p id="monthName"></p>
+                        <p id="dayName"></p>
+                        <p id="dayNumber"></p>
+                        <p id="year"></p>
+                    </div>
+                </div>
+                <div class="card3">
+                   <div class="hour">
+                       <div class="hr" id="hr"></div>
+                   </div>
+                   <div class="min">
+                       <div class="mn" id="mn"></div>
+                   </div>
+                   <div class="sec">
+                       <div class="sc" id="sc"></div>
+                   </div>
+               </div>
+               
+               <a th:href="@{/admin/configaccount}" class="menu-btn">
+	                 <div class="card4">
+	                    <div class="icon">
+	                        <i class="fas fa-cog"></i>
+	                         <p class="titel">Bảo mật</p>
+	                    </div>
+	                 </div>
+	             </a>
+            <!--main container end-->
+        </div>
+        <!--wrapper end-->
+        <script th:src="@{/js/menu.js}"></script>
+        <script th:src="@{/js/day.js}"></script>
+        <script th:src="@{/js/clock.js}"></script>
+       </body>
+</html>
+                           

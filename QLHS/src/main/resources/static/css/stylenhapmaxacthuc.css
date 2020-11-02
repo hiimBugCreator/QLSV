@@ -1,0 +1,94 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+section
+{
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: #2F323A;
+}
+section .container
+{
+    width: 800px;
+    height: 500px;
+    background: #2F323A;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+section .container .fombox form input
+{
+    width: 100%;
+    margin-bottom: 20px;
+}
+section .container .fombox h2
+{
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 10px;
+    color: #fff;
+}
+section .container .fombox form input
+{
+    position: relative;
+    width: 100%;
+    padding: 10px;
+    background: #f5f5f5;
+    color: #2F323A;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    margin: 8px 0;
+    font-size: 14px;
+    letter-spacing: 2px;
+    font-weight: 300;
+}
+section .container .fombox form  a
+{
+    background: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 35px;
+    letter-spacing: 1px;
+    transition: .5s;
+    text-decoration: none;
+    color: #2F323A;
+    padding: 5px;
+    max-width: 100px;
+    cursor: pointer;
+}
+section .container .fombox form  a:hover
+{
+    background: #677eff;
+    color: #fff;
+}
+section .container .fombox form input[type="submit"]
+{
+    max-width: 100px;
+    background: #fff;
+    color: #2F323A;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    transition: .5s;
+}
+section .container .fombox form input[type="submit"]:hover
+{
+    background: #677eff;
+    color: #fff;
+}
