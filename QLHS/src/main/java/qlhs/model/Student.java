@@ -11,9 +11,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+
 @Entity
-@Table(name = "giaovien", catalog = "quanlyhocsinh", schema = "dbo")
-public class Teacher {
+@Table(name = "hocsinh", catalog = "quanlyhocsinh", schema = "dbo")
+public class Student {
 	
 	@Id
 	@Column 
@@ -23,8 +24,11 @@ public class Teacher {
 	@Column(name="hovaten")
 	private String hoten;
 	
-	@Column(name="msgv")
-	private String msgv;
+	@Column(name="mshs")
+	private String mshs;
+	
+	@Column(name="tenphuhuynh")
+	private String tenphuhuynh;
 	
 	@Column(name="gioitinh")
 	private String gioitinh;
@@ -42,12 +46,11 @@ public class Teacher {
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_taikhoan")
 	private Account account;
-
 	
-	public Teacher() {
+	public Student() {
 		super();
 	}
-	
+
 	public int getId() {
 		return id;
 	}
@@ -64,12 +67,20 @@ public class Teacher {
 		this.hoten = hoten;
 	}
 
-	public String getMsgv() {
-		return msgv;
+	public String getMshs() {
+		return mshs;
 	}
 
-	public void setMsgv(String msgv) {
-		this.msgv = msgv;
+	public void setMshs(String mshs) {
+		this.mshs = mshs;
+	}
+
+	public String getTenphuhuynh() {
+		return tenphuhuynh;
+	}
+
+	public void setTenphuhuynh(String tenphuhuynh) {
+		this.tenphuhuynh = tenphuhuynh;
 	}
 
 	public String getGioitinh() {
@@ -110,14 +121,6 @@ public class Teacher {
 
 	public void setDiachi(String diachi) {
 		this.diachi = diachi;
-	}
-
-	public Account getAccount() {
-		return account;
-	}
-
-	public void setAccount(Account account) {
-		this.account = account;
 	}
 	
 	

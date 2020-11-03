@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/quenmatkhau.css}">
+    <title>Document</title>
+</head>
+<script> 
+	function check() {
+	    if(document.getElementById('password').value === document.getElementById('confirm_password').value) {
+	        document.getElementById('message').innerHTML = "OK";
+	        document.getElementById('message').style.color = 'white';
+	        document.getElementById('btn').style.display = "block";
+	    } else {
+	        document.getElementById('message').innerHTML = "Retype Password";
+	        document.getElementById('message').style.color = 'red';
+	        document.getElementById('btn').style.display = "none";
+	    }
+	}
+</script> 
+<body>
+    <section>
+        <div class="container">
+            <div class="fombox">
+                <h2>Đổi mật khẩu</h2>
+                <form method="post" th:action="@{/account/change}">
+                    <input type="password" placeholder="Mật Khẩu" name="password" id="password" >
+                    <input type="password" placeholder="Nhập Lại Mật Khẩu" name="confirm_password" id="confirm_password" oninput="check()">
+                    <div id='message'></div>
+                    <input type="submit" name="" id="btn" style="display: none" value="OK">
+                </form>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+
+
+<!-- 
+	<form th:action="@{/account/changepassword/change}" th:object="${account}" method="post">
+                    <input type="password" placeholder="Mật Khẩu" th:field="*{matkhau}" name="password" id="password">
+                    <input type="password" placeholder="Nhập Lại Mật Khẩu" name="confirm_password" id="confirm_password" onchange="check()">
+                    <span id='message'></span>
+                    <a th:href="">Xác Nhận</a>
+                </form>
+	
+ -->

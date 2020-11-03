@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <title>Sidebar Dashboard Template With Sub Menu</title>
+        <link rel="stylesheet" th:href="@{/css/stylethongtinhocsinh.css}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </head>
+    <body>
+
+        <!--wrapper start-->
+        <div class="wrapper">
+            <!--header menu start-->
+            <div class="header">
+                <div class="header-menu">
+                    <div class="title">Quản Lí<span>Trường Học</span></div>
+                    <div class="sidebar-btn" onclick="toggleMenu();">
+                        <i class="fas fa-bars" ></i>
+                    </div>
+                </div>
+            </div>
+            <!--header menu end-->
+            <!--sidebar start-->
+            <div class="sidebar">
+                <div class="sidebar-menu">
+                    <li class="item" id="dashboard">
+                        <a th:href="@{/admin}" class="menu-btn">
+                            <i class="fas fa-tachometer-alt"></i><span>Thongke</span>
+                        </a>
+                    </li>
+                    <li class="item" id="profile">
+                        <a href="#profile" class="menu-btn">
+                            <i class="fas fa-user-graduate"></i><span>HocSinh</i> <i class="fas fa-chevron-down drop-down"></i></span>
+                        </a>
+                        <div class="sub-menu">
+                            <a href="tatcahocsinh.html"><i class="fas fa-user-graduate"></i><span>TatCaHocSinh</span></a>
+                            <a href="themhocsinh.html"><i class="fas fa-user-plus"></i><span>ThemHocSinh</span></a>
+                            <a href="timkiemhocsinh.html"><i class="fas fa-search"></i><span>TìmKiem</span></a>
+                        </div>
+                    </li>
+                    <li class="item" id="messages">
+                        <a href="#messages" class="menu-btn">
+                            <i class="fas fa-chalkboard-teacher"></i><span>GiaoVien</i> <i class="fas fa-chevron-down drop-down"></i></span>
+                        </a>
+                        <div class="sub-menu">
+                            <a href="#"><i class="fas fa-envelope"></i><span>New</span></a>
+                            <a href="#"><i class="fas fa-envelope-square"></i><span>Sent</span></a>
+                            <a href="#"><i class="fas fa-exclamation-circle"></i><span>Spam</span></a>
+                        </div>
+                    </li>
+                    <li class="item" id="settings">
+                        <a href="#settings" class="menu-btn">
+                            <i class="fas fa-calendar-alt"></i><span>Lop</span>
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a href="#" class="menu-btn">
+                        <i class="fas fa-sign-out-alt"></i><span>DangXuat</span>
+                    </a>
+                    </li>
+                </div>
+            </div>
+            <!--sidebar end-->
+            <!--main container start-->
+            <div class="main-container">
+                <div class="text">
+                    <h2>Thông tin tài khoản</h2>
+                </div>
+                <div class="details">
+                <div class="img">   
+                    <img th:src="@{/img/pngtree-student-glyph-black-icon-png-image_691145.jpg}">
+                </div>
+                <div class="text-box">
+                    <p>Tên tài khoản</p>
+                    <p>Email</p>
+                    <p>Số điện thoại</p>
+                    <a th:href="@{/account/changepassword}">Đổi mật khẩu</a>
+                </div>
+                <div class="text-box">
+                    <h4 th:text="${user.tentaikhoan}"></h4>
+                    <h4 th:text="${user.email}"></h4>
+                    <h4 th:text="${user.sodienthoai}"></h4>
+                </div>
+                <div class="text-box right">
+                    <div class="icon">
+                        <a href="chinhsuathongtin.html"><i class="fas fa-edit"></i></a>
+                        <a href="#"><i class="fas fa-download"></i></a>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <!--main container end-->
+        </div>    
+        <!--wrapper end-->
+        <script th:src="@{/js/menu.js}"></script>
+       </body>
+</html>
+                           
