@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
   <head>
     <title>Educational registration form</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
@@ -131,31 +131,27 @@
           <a class="btn-item" href="https://www.w3docs.com/quiz/#">Select Quiz</a>
         </div>
       </div>
-      <form action="/">
+      <form th:action="@{/template}" th:object="${account}" method="post">
         <div class="title">
           <i class="fas fa-pencil-alt"></i> 
-          <h2>Register here</h2>
+          <h2>Register helo here</h2>
         </div>
         <div class="info">
-          <input class="fname" type="text" name="name" placeholder="Full name">
-          <input type="text" name="name" placeholder="Email">
-          <input type="text" name="name" placeholder="Phone number">
-          <input type="password" name="name" placeholder="Password">
+          <input class="fname" type="text" name="" th:field="*{tentaikhoan}" placeholder="Full name">
+          <input type="text" name="" th:field="*{email}" placeholder="Email">
+          <input type="text" name="" th:field="*{sodienthoai}" placeholder="Phone number">
+          <input type="password" name="" th:field="*{matkhau}" placeholder="Password">
           <select>
-            <option value="course-type" selected>Course type*</option>
-            <option value="short-courses">Short courses</option>
-            <option value="featured-courses">Featured courses</option>
-            <option value="undergraduate">Undergraduate</option>
-            <option value="diploma">Diploma</option>
-            <option value="certificate">Certificate</option>
-            <option value="masters-degree">Masters degree</option>
-            <option value="postgraduate">Postgraduate</option>
+          	<option th:each="type : ${T(qlhs.model.TypeOfAccount).values()}" 
+          		th:value="${type}"
+          		th:text="${type}">
+          	</option>
           </select>
         </div>
         <div class="checkbox">
           <input type="checkbox" name="checkbox"><span>I agree to the <a href="https://www.w3docs.com/privacy-policy">Privacy Poalicy for W3Docs.</a></span>
         </div>
-        <button type="submit" href="/">Submit</button>
+        <button type="submit">Submit</button>
       </form>
     </div>
   </body>
