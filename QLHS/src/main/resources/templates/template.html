@@ -131,28 +131,75 @@
           <a class="btn-item" href="https://www.w3docs.com/quiz/#">Select Quiz</a>
         </div>
       </div>
-      <form th:action="@{/template}" th:object="${account}" method="post">
-        <div class="title">
-          <i class="fas fa-pencil-alt"></i> 
-          <h2>Register helo here</h2>
-        </div>
-        <div class="info">
-          <input class="fname" type="text" name="" th:field="*{tentaikhoan}" placeholder="Full name">
-          <input type="text" name="" th:field="*{email}" placeholder="Email">
-          <input type="text" name="" th:field="*{sodienthoai}" placeholder="Phone number">
-          <input type="password" name="" th:field="*{matkhau}" placeholder="Password">
-          <select>
-          	<option th:each="type : ${T(qlhs.model.TypeOfAccount).values()}" 
-          		th:value="${type}"
-          		th:text="${type}">
-          	</option>
-          </select>
-        </div>
-        <div class="checkbox">
-          <input type="checkbox" name="checkbox"><span>I agree to the <a href="https://www.w3docs.com/privacy-policy">Privacy Poalicy for W3Docs.</a></span>
-        </div>
-        <button type="submit">Submit</button>
-      </form>
+      <th:block th:switch="${typeofaccount}">
+      
+		<div th:case="null">
+		    <form th:action="@{/template}" th:object="${account}" method="post">
+		      <div class="title">
+		        <i class="fas fa-pencil-alt"></i> 
+		        <h2>Register here</h2>
+		      </div>
+		      <div class="info">
+		        <input class="fname" type="text" name="" th:field="*{tentaikhoan}" placeholder="username">
+		        <input type="text" name="" th:field="*{email}" placeholder="Email">
+		        <input type="text" name="" th:field="*{sodienthoai}" placeholder="Phone number">
+		        <input type="password" name="" th:field="*{matkhau}" placeholder="Password">
+		        <select th:field="*{typeOfAccount}">
+		         <option th:each="type : ${T(qlhs.model.TypeOfAccount).values()}" 
+		          	th:value="${type}"
+		         	th:text="${type}">
+		         </option>
+		        </select>
+		      </div>
+		      <div class="checkbox">
+		        <input type="checkbox" name="checkbox"><span>I agree to the <a href="https://www.w3docs.com/privacy-policy">Privacy Poalicy for W3Docs.</a></span>
+		      </div>
+		      <button type="submit">Submit</button>
+		    </form>
+		</div>
+		
+		<!-- Teacher Form -->
+		<div th:case="'Teacher'">
+			<form th:action="@{/template/Teacher-form}" th:object="${teacher}" method="post">
+		      <div class="title">
+		        <i class="fas fa-pencil-alt"></i> 
+		        <h2>Register Teacher here</h2>
+		      </div>
+		      <div class="info">
+		        <input class="fname" type="text" name="" th:field="*{hoten}" placeholder="Fullname">
+		        <input type="text" name="" th:field="*{msgv}" placeholder="MSGV">
+		        <input type="text" name="" th:field="*{gioitinh}" placeholder="Gender">
+		        <input type="date" name="" th:field="*{ngaysinh}" placeholder="BirthDate">
+		        <input type="text" name="" th:field="*{noisinh}" placeholder="BirthPlace">
+		        <input type="text" name="" th:field="*{dantoc}" placeholder="dantoc">
+		        <input type="text" name="" th:field="*{diachi}" placeholder="diachi">
+		      </div>
+		      <button type="submit">Submit</button>
+		    </form>
+		</div>
+		
+		<!-- Student Form -->
+		<div th:case="'Student'">
+			<form th:action="@{/template/Student-form}" th:object="${student}" method="post">
+		      <div class="title">
+		        <i class="fas fa-pencil-alt"></i> 
+		        <h2>Register Student here</h2>
+		      </div>
+		      <div class="info">
+		        <input class="fname" type="text" name="" th:field="*{hoten}" placeholder="Fullname">
+		        <input type="text" name="" th:field="*{mshs}" placeholder="MSHS">
+		        <input type="text" name="" th:field="*{tenphuhuynh}" placeholder="Parents">
+		        <input type="text" name="" th:field="*{gioitinh}" placeholder="Gender">
+		        <input type="date" name="" th:field="*{ngaysinh}" placeholder="BirthDate">
+		        <input type="text" name="" th:field="*{noisinh}" placeholder="BirthPlace">
+		        <input type="text" name="" th:field="*{dantoc}" placeholder="dantoc">
+		        <input type="text" name="" th:field="*{diachi}" placeholder="diachi">
+		      </div>
+		      <button type="submit">Submit</button>
+		    </form>
+		</div>
+		
+      </th:block>
     </div>
   </body>
 </html>

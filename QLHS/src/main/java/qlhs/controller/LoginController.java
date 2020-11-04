@@ -26,6 +26,7 @@ public class LoginController {
 	
 	@GetMapping
 	public ModelAndView index() {
+		String type = null;
 		ModelAndView mv = new ModelAndView("dangnhap");
 		Account acc = new Account();
 		mv.addObject("account", acc);
@@ -51,14 +52,14 @@ public class LoginController {
 			//set session
 			HttpSession session = request.getSession();
 			session.setAttribute("user", accountnow);
-			switch (accountnow.getTypeOfAccount()) {
-			case 1:
+			switch (accountnow.getTypeOfAccount().toString()) {
+			case "Admin":
 				mv.setViewName("redirect:/admin");
 				break;
-			case 2:
+			case "Student":
 				mv.setViewName("redirect:/student");		
 				break;
-			case 3:
+			case "Teacher":
 				mv.setViewName("redirect:/teacher");
 				break;
 			default:

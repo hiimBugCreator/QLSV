@@ -2,5 +2,6 @@ package qlhs.model;
 
 public enum TypeOfAccount {
 	Teacher,
-	Student
+	Student,
+	Admin
 }
