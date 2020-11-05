@@ -14,6 +14,7 @@ import qlhs.model.Account;
 import qlhs.model.Student;
 import qlhs.model.Teacher;
 import qlhs.repository.AccountRepository;
+import qlhs.repository.StudentRepository;
 import qlhs.repository.TeacherRepository;
 import qlhs.service.AuthenticationService;
 
@@ -29,6 +30,9 @@ public class TemplateController {
 	
 	@Autowired
 	private TeacherRepository teacherRepository;
+	
+	@Autowired
+	private StudentRepository studentRepository;
 	
 	@GetMapping("/template")
 	public ModelAndView index(HttpServletRequest request) {
@@ -115,6 +119,25 @@ public class TemplateController {
 		ModelAndView mv = new ModelAndView();
 		Account acc = accountTemp;
 		accountTemp = null;
+		System.out.println(">>>Account<<<");
+		System.out.println(acc.getTentaikhoan());
+		System.out.println(acc.getEmail());
+		System.out.println(acc.getMatkhau());
+		System.out.println(acc.getSodienthoai());
+		System.out.println(acc.getTypeOfAccount());
+		student.setAccount(acc);
+		System.out.println("teacher set account -> Completed");
+		accountRepository.save(acc);
+		System.out.println("account saved -> Completed");
+		System.out.println(">>>Teacher<<<");
+		System.out.println(student.getMshs());
+		System.out.println(student.getDantoc());
+		System.out.println(student.getGioitinh());
+		System.out.println(student.getNgaysinh());
+		System.out.println(student.getDiachi());
+		System.out.println(student.getHoten());
+		studentRepository.save(student);
+		System.out.println("teacher saved -> Completed");
 		System.out.println(student.getHoten());
 		System.out.println(acc.getTentaikhoan());
 		mv.setViewName("redirect:/login");
