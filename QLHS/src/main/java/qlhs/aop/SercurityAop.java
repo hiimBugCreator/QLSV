@@ -34,7 +34,7 @@ public class SercurityAop {
 			System.out.println(taikhoan + password);
 			//accountProcudureRepository.insertall();
 			List<Account> account =	accountProcudureRepository.loginWithAccount(taikhoan,password);
-			System.out.println("size"+account.size());
+			System.out.println("size: "+account.size());
 			if(account.size()!=0) {
 				LOGIN_STATUS=true;
 				SercurityAop.account = account.get(0);

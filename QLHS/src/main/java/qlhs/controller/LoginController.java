@@ -1,19 +1,25 @@
 package qlhs.controller;
 
+import java.io.IOException;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import qlhs.model.Account;
 import qlhs.repository.AccountRepository;
 import qlhs.service.AuthenticationService;
+import qlhs.service.EmailService;
 
 @Controller
 @RequestMapping("/login")
@@ -23,6 +29,12 @@ public class LoginController {
 	AuthenticationService authen;
 	@Autowired
 	AccountRepository acccount;
+	
+	@Autowired
+	EmailService emailService;
+	
+
+//	private JavaMailSender javaMailSender;
 	
 	@GetMapping
 	public ModelAndView index() {
@@ -71,6 +83,14 @@ public class LoginController {
 			mv.setViewName("dangnhap");
 		}
 		return mv;
+	}
+	
+	@PostMapping("/confirmPwd")
+	public ModelAndView confirmPwd(@RequestParam("email") String email,
+								HttpServletRequest request){
+		System.out.println(email);
+		emailService.sendMail(email, "Code to Confirm Password", "AAA-BBB-999");
+		return null;
 	}
 	
 	
