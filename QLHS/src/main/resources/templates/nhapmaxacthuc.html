@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/stylenhapmaxacthuc.css}">
+    <title>Document</title>
+</head>
+<body>
+    <section>
+        <div class="container">
+            <div class="fombox">
+                <h2>Khôi Phục Tài Khoản</h2>
+                <form th:action="@{/login/verifyCode}" th:object="${account}" method="post">
+                    <input type="text" placeholder="Nhập Mã Xác Thực" name="token">
+                    <input type="submit" name="" value="Tiếp Theo">
+                </form>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

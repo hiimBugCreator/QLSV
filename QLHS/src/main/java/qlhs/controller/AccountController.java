@@ -33,6 +33,7 @@ public class AccountController {
 		ModelAndView mv = new ModelAndView();
 		System.out.println(status);
 		if(status) {
+			String state = "";
 			mv.addObject("user",(Account)request.getSession().getAttribute("user"));
 			mv.setViewName("quenmatkhau");
 		} else {
