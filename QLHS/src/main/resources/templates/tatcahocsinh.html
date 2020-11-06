@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <title>Sidebar Dashboard Template With Sub Menu</title>
+        <link rel="stylesheet" th:href="@{/css/styletatcahocsinh.css}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </head>
+    <body>
+
+        <!--wrapper start-->
+        <div class="wrapper">
+            <!--header menu start-->
+            <div class="header">
+                <div class="header-menu">
+                    <div class="title">QuanLi<span>TruongHoc</span></div>
+                    <div class="sidebar-btn" onclick="toggleMenu();">
+                        <i class="fas fa-bars" ></i>
+                    </div>
+                </div>
+            </div>
+            <!--header menu end-->
+            <!--sidebar start-->
+            <div class="sidebar">
+                <div class="sidebar-menu">
+                    <li class="item" id="dashboard">
+                        <a th:href="@{/admin}" class="menu-btn">
+                            <i class="fas fa-tachometer-alt"></i><span>Thongke</span>
+                        </a>
+                    </li>
+                    <li class="item" id="profile">
+                        <a href="#profile" class="menu-btn">
+                            <i class="fas fa-user-graduate"></i><span>HocSinh</i> <i class="fas fa-chevron-down drop-down"></i></span>
+                        </a>
+                        <div class="sub-menu">
+                            <a th:href="@{/admin/tatcahocsinh}"><i class="fas fa-user-graduate"></i><span id="tab-two">TatCaHocSinh</span></a>
+                            <a href="themhocsinh.html"><i class="fas fa-user-plus"></i><span>ThemHocSinh</span></a>
+                            <a href="timkiemhocsinh.html"><i class="fas fa-search"></i><span>TìmKiem</span></a>
+                        </div>
+                    </li>
+                    <li class="item" id="messages">
+                        <a href="#messages" class="menu-btn">
+                            <i class="fas fa-chalkboard-teacher"></i><span>GiaoVien</i> <i class="fas fa-chevron-down drop-down"></i></span>
+                        </a>
+                        <div class="sub-menu">
+                            <a href="tatcagiaovien.html"><i class="fas fa-chalkboard-teacher"></i><span>TatCaGiaoVien</span></a>
+                            <a href="themgiaovien.html"><i class="fas fa-user-plus"></i><span>ThemGiaoVien</span></a>
+                            <a href="timkiemgv.html"><i class="fas fa-search"></i><span>TimKiem</span></a>
+                        </div>
+                    </li>
+                    <li class="item" id="settings">
+                        <a href="#settings" class="menu-btn">
+                            <i class="fas fa-calendar-alt"></i><span>ThoiKhoaBieu</span>
+                        </a>
+                    </li>
+                    <li class="item" id="settings">
+                        <a href="#settings" class="menu-btn">
+                            <i class="fas fa-print"></i><span>BangDiem</span>
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a href="#" class="menu-btn">
+                        <i class="fas fa-sign-out-alt"></i><span>DangXuat</span>
+                    </a>
+                    </li>
+                </div>
+            </div>
+            <!--sidebar end-->
+            <!--main container start-->
+        <div class="main-container">
+            <div class="form-box">
+                <div class="text">
+                    <h2>TatCaHocSinh</h2>
+                </div>
+                <div class="form">
+                    <div class="inpuxbox">
+                    <input type="text" placeholder="TimKiem">
+                    <button>Tim</button>
+                    </div>
+                </div>
+                <div class="table">
+                    <table>
+                        <tr>
+	                        <th>MaHocSinh</th>
+	                        <th>HocVaTen</th>
+	                        <!-- <th>Lop</th>
+	                        <th>SoDienThoai</th>
+	                        <th>Email</th> -->
+	                        <th>TuyChinh</th>
+                        </tr>
+                        <th:block th:if="${#lists.isEmpty(students)}">
+	                        <tr>
+			                        <td colspan="2">No Student available!</td>
+			                </tr>
+	                    </th:block>
+	                    <th:block th:unless="${#lists.isEmpty(students)}">
+	                        <tr th:each="student : ${students}">
+			                   <td th:text="${student.mshs}"></td>
+			                   <td th:text="${student.hoten}"></td>
+			                   <td><a th:href="@{/admin/xemthongtinhocsinh/{id}  (id=${student.id})}" style="color: #fff;"><i class="fas fa-eye"></i></a>
+			                   <a th:href="@{/admin/chinhsuathongtinhocsinh/{id}   (id=${student.id})}" style="color: #fff;"><i class="fas fa-edit"></i></a>
+			                   <i class="fas fa-trash-alt"></i></td>
+		                    </tr>
+	                    </th:block>
+                      </table>
+                </div>
+            </div>
+        </div>       
+        <!--wrapper end-->
+        <script th:src="@{/js/menu.js}"></script>
+       </body>
+</html>
+                           
