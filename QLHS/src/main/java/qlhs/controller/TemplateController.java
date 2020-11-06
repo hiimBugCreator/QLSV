@@ -56,6 +56,11 @@ public class TemplateController {
 		case "Student":
 			mv.setViewName("redirect:/template/Student-form");
 			break;
+		case "Admin":
+			accountRepository.save(accountTemp);
+			accountTemp = null;
+			mv.setViewName("redirect:/login");
+			break;
 			
 		default:
 			break;

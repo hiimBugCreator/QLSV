@@ -5,7 +5,7 @@
         <title>Sidebar Dashboard Template With Sub Menu</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <link rel="stylesheet" th:href="@{/css/thongtin.css}">
+        <link rel="stylesheet" th:href="@{/css/thongtinhs.css}">
     </head>
     <body>
 
@@ -14,7 +14,7 @@
             <!--header menu start-->
             <div class="header">
                 <div class="header-menu">
-                    <div class="title">Chao<span>Ban</span></div>
+                    <div class="title">Chao<span th:text="${student.hoten}"></span></div>
                     <div class="sidebar-btn" onclick="toggleMenu();">
                         <i class="fas fa-bars" ></i>
                     </div>
@@ -25,17 +25,17 @@
             <div class="sidebar">
                 <div class="sidebar-menu">
                     <li class="item">
-                        <a th:href="@{/teacher}" class="menu-btn">
+                        <a th:href="@{/student}" class="menu-btn">
                             <i class="fas fa-info"></i><span>ThongTin</span>
                         </a>
                     </li>
                     <li class="item">
-                        <a href="#" class="menu-btn">
-                            <i class="fas fa-print"></i><span>NhapDiem</i></span>
+                        <a th:href="@{/student/bangdiem}" class="menu-btn">
+                            <i class="fas fa-print"></i><span>Diem</i></span>
                         </a>
                     </li>
                     <li class="item">
-                        <a th:href="@{/teacher/thoikhoabieu}" class="menu-btn">
+                        <a th:href="@{/student/thoikhoabieu}" class="menu-btn">
                             <i class="far fa-calendar-plus"></i><span>ThoiKhoaBieu</i></span>
                         </a>
                     <li class="item">
@@ -50,20 +50,25 @@
             <div class="main-container">
                 <div class="box">
                     <div class="imgBx">
-                        <img th:src="@{/img/teacherImage.jpg}">
+                        <img th:src="@{/img/studentImage.jpg}">
                     </div>
                     <div class="content">
-                        <h2 th:text="${teacher.hoten}"></h2>
-                        <p>NgaySinh: <th:block th:text="${teacher.ngaysinh}"></th:block></p>
-                        <p>MSGV: <th:block th:text="${teacher.msgv}"></th:block></p>
-                        <p>ChucVu: GiaoVien</p>
+                        <h2>
+	                        <th:block th:text="${student.hoten}"></th:block>
+	                        <br>
+	                        <span>NgaySinh: <th:block th:text="${student.ngaysinh}"></th:block></span>
+	                        <br>
+	                        <span>MSSV: <th:block th:text="${student.mshs}"></th:block></span>
+	                        <br>
+	                        <span>Lop: 6a4</span>
+                        </h2>
                     </div>
                 </div>
             </div>
             <!--main container end-->
         </div>    
         <!--wrapper end-->
-        <script  th:src="@{/js/menu.js}"></script>
+        <script src="js/menu.js"></script>
        </body>
 </html>
                            

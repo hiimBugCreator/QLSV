@@ -7,5 +7,5 @@ import qlhs.model.Teacher;
 
 @Repository
 public interface TeacherRepository extends CrudRepository<Teacher, Integer> {
-
+	Teacher findByAccountId(int id_taikhoan);
 }
