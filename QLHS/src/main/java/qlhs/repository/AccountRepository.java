@@ -9,5 +9,6 @@ import org.springframework.stereotype.Repository;
 import qlhs.model.Account;
 
 @Repository
-public interface AccountRepository extends CrudRepository<Account, Integer>{	
+public interface AccountRepository extends CrudRepository<Account, Integer>{
+	Account findByEmail(String email);
 }

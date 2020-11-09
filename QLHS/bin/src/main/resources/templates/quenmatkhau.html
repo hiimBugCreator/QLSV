@@ -24,24 +24,12 @@
         <div class="container">
             <div class="fombox">
                 <h2>Đổi mật khẩu</h2>
-                <th:block th:switch="${NoSession}">
-                	<div th:case="null">
-		                <form method="post" th:action="@{/account/change}">
-		                    <input type="password" placeholder="Mật Khẩu" name="password" id="password" >
-		                    <input type="password" placeholder="Nhập Lại Mật Khẩu" name="confirm_password" id="confirm_password" oninput="check()">
-		                    <div id='message'></div>
-		                    <input type="submit" name="" id="btn" style="display: none" value="OK">
-		                </form>
-	                </div>
-	                <div th:case="*">
-		                <form method="post" th:action="@{/login/verifyPassword}">
-		                    <input type="password" placeholder="Mật Khẩu" name="password" id="password" >
-		                    <input type="password" placeholder="Nhập Lại Mật Khẩu" name="confirm_password" id="confirm_password" oninput="check()">
-		                    <div id='message'></div>
-		                    <input type="submit" name="" id="btn" style="display: none" value="OK">
-		                </form>
-	                </div>
-                </th:block>
+                <form method="post" th:action="@{/account/change}">
+                    <input type="password" placeholder="Mật Khẩu" name="password" id="password" >
+                    <input type="password" placeholder="Nhập Lại Mật Khẩu" name="confirm_password" id="confirm_password" oninput="check()">
+                    <div id='message'></div>
+                    <input type="submit" name="" id="btn" style="display: none" value="OK">
+                </form>
             </div>
         </div>
     </section>

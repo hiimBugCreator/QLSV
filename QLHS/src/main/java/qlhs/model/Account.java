@@ -48,8 +48,9 @@ public class Account {
 	@Column(name="sodienthoai")
 	private String sodienthoai;
 	
+	@Enumerated(EnumType.STRING)
 	@Column(name = "loaitaikhoan")
-	private int typeOfAccount;
+	private TypeOfAccount typeOfAccount;
 	
 	public Account() {
 		super();
@@ -117,15 +118,17 @@ public class Account {
 	}
 
 
-	public int getTypeOfAccount() {
+	public TypeOfAccount getTypeOfAccount() {
 		return typeOfAccount;
 	}
 
 
-	public void setTypeOfAccount(int typeOfAccount) {
+	public void setTypeOfAccount(TypeOfAccount typeOfAccount) {
 		this.typeOfAccount = typeOfAccount;
 	}
 
+
+	
 
 	
 	
