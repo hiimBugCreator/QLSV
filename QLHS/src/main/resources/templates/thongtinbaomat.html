@@ -54,9 +54,19 @@
                             <i class="fas fa-calendar-alt"></i><span>Lop</span>
                         </a>
                     </li>
+                    <li class="item" id="settings">
+                        <a href="#settings" class="menu-btn">
+                            <i class="fas fa-calendar-alt"></i><span>ThoiKhoaBieu</span>
+                        </a>
+                    </li>
+                    <li class="item" id="settings">
+                        <a href="#settings" class="menu-btn">
+                            <i class="fas fa-print"></i><span>BangDiem</span>
+                        </a>
+                    </li>
                     <li class="item">
-                        <a href="#" class="menu-btn">
-                        <i class="fas fa-sign-out-alt"></i><span>DangXuat</span>
+                        <a th:href="@{/login/logout}" class="menu-btn">
+                        <i class="fas fa-sign-out-alt"></i><div>Đăng Xuất khỏi tài khoản:</div><span th:text="${user.tentaikhoan}"></span>
                     </a>
                     </li>
                 </div>
