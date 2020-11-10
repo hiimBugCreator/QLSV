@@ -61,7 +61,6 @@
     display: flex;
   }
   .wrapper .sidebar{
-    z-index: 1;
     background: #2F323A;
     position: fixed;
     top: 70px;
@@ -149,7 +148,7 @@
     margin-top: 100px;
     margin-left: 270px;
     width: 85%;
-    height: 850px;
+    height: 1100px;
     background: #fff;
     box-shadow: 0 10px 20px rgba(0, 0, 0, .5);
     display: flex;
@@ -172,7 +171,6 @@
     width: 100%;
     height: 100%;
     background: linear-gradient(225deg,#e91e63,#03a9f4);
-    z-index: 1;
     mix-blend-mode: screen;
   }
   .wrapper .main-container  .imgBx img
@@ -211,6 +209,10 @@
   {
     margin-bottom: 20px;
   }
+  .wrapper .main-container .contentbox .fromBx p
+  {
+    margin-top: 10px;
+  }
   .wrapper .main-container .contentbox .fromBx .inputBx span,
   .wrapper .main-container .contentbox .fromBx .inputBx select
   {
@@ -236,6 +238,24 @@
     background: transparent;
     border-radius: 30px;
   }
+  .wrapper .main-container .contentbox .fromBx .inputBx2 
+  {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .wrapper .main-container .contentbox .fromBx .inputBx2 input[type="file"]
+  {
+    display: none;
+  }
+  .wrapper .main-container .contentbox .fromBx .inputBx2 label
+  {
+    color: #fff;
+    background: #f53677;
+    padding: 10px 20px;
+    letter-spacing: 1px;
+    cursor: pointer;
+  }
   .wrapper .main-container .contentbox .fromBx .inputBx input[type="submit"]
   {
     background: #ff4584;
@@ -244,6 +264,7 @@
     border: none;
     font-weight: 500;
     cursor: pointer;
+    margin-top: 10px;
   }
   .wrapper .main-container .contentbox .fromBx .inputBx input[type="submit"]:hover
   {
@@ -257,7 +278,6 @@
   .wrapper.collapse .sidebar .sidebar-menu .item .menu-btn{
     font-size: 23px;
   }
-  
   .wrapper.collapse .sidebar .sidebar-menu .item .sub-menu i{
     font-size: 18px;
     padding-left: 3px;

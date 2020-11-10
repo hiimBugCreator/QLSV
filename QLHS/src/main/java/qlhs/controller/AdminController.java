@@ -13,15 +13,21 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import qlhs.model.Account;
+import qlhs.model.Chucvu;
+import qlhs.model.Ngaychucvu;
 import qlhs.model.Student;
 import qlhs.model.Teacher;
 import qlhs.repository.AccountRepository;
+import qlhs.repository.ChucvuRepository;
+import qlhs.repository.NgaychucvuRepository;
 import qlhs.repository.StudentRepository;
 import qlhs.repository.TeacherRepository;
 import qlhs.service.AuthenticationService;
+import qlhs.service.ChucvuService;
 import qlhs.service.StudentService;
 import qlhs.service.TeacherService;
 
@@ -47,12 +53,22 @@ public class AdminController {
 	@Autowired
 	private StudentRepository studentRepository;
 	
+	@Autowired
+	private ChucvuRepository chucvuRepository;
+	
+	@Autowired
+	private ChucvuService chucvuService;
+	
+	@Autowired
+	private NgaychucvuRepository ngaychucvuRepository;
 	
 	@GetMapping
 	public ModelAndView index(HttpServletRequest request) {
 		boolean status=request.getSession().getAttribute("user")!=null?true:false;
+		HttpSession session = request.getSession();
 		ModelAndView mv = new ModelAndView();
 		System.out.println(status);
+		
 		if(status) {
 			
 			mv.addObject("user",(Account)request.getSession().getAttribute("user"));  
@@ -96,7 +112,6 @@ public class AdminController {
 	@GetMapping("/tatcagiaovien")
 	public ModelAndView tatcagiaovien(HttpServletRequest request) {
 		boolean status=request.getSession().getAttribute("user")!=null?true:false;
-		HttpSession session = request.getSession();
 		ModelAndView mv = new ModelAndView();
 		System.out.println(status);
 		if(status) {
@@ -110,15 +125,15 @@ public class AdminController {
 		}
 		return mv;
 	}
-	
+	// Them Tai Khoan
 	@GetMapping("/themtaikhoan")
 	public ModelAndView themtaikhoan(HttpServletRequest request) {
 		boolean status=request.getSession().getAttribute("user")!=null?true:false;
 		ModelAndView mv = new ModelAndView();
 		System.out.println(status);
 		if(status) {
-			Account acc = new Account();
-			mv.addObject("account", acc);
+			Account account = new Account();
+			mv.addObject("account", account);
 			mv.addObject("user",(Account)request.getSession().getAttribute("user"));
 			mv.setViewName("themtaikhoan");
 		} else {
@@ -128,27 +143,27 @@ public class AdminController {
 	}
 	
 	@PostMapping("/themtaikhoan")
-	public ModelAndView themtaikhoan(@ModelAttribute Account account, HttpServletRequest request) {
+	public ModelAndView themtaikhoan(@ModelAttribute Account account,HttpServletRequest request) {
 		boolean status=request.getSession().getAttribute("user")!=null?true:false;
+		HttpSession session = request.getSession();
 		ModelAndView mv = new ModelAndView();
 		System.out.println(status);
 		if(status) {
+			System.out.println(account.getTypeOfAccount());
 			mv.addObject("user",(Account)request.getSession().getAttribute("user"));
 			//Set new Account to Session
-			HttpSession session = request.getSession();
+			session.setAttribute("newAccount", account);
 			
-			switch (account.getTypeOfAccount().toString()) {
-			case "Teacher":
-				session.setAttribute("newAccount", account);
-				mv.setViewName("redirect:/admin/themgiaovien");
+			switch (account.getTypeOfAccount()) {
+			case "GiaoVien":
+				mv.setViewName("redirect:/admin/themtaikhoan/themgiaovien");
 				break;
-			case "Student":
-				session.setAttribute("newAccount", account);
-				mv.setViewName("redirect:/admin/themhocsinh");
+			case "HocSinh":
+				mv.setViewName("redirect:/admin/themtaikhoan/themhocsinh");
 				break;
 			case "Admin":
 				accountRepository.save(account);
-				mv.setViewName("redirect:/login");
+				mv.setViewName("redirect:/admin");
 				break;
 			default:
 				mv.setViewName("redirect:/admin");
@@ -160,89 +175,126 @@ public class AdminController {
 		return mv;
 	}
 	
-	@GetMapping("/themgiaovien")
+	@GetMapping("/themtaikhoan/themgiaovien")
 	public ModelAndView themgiaovien(HttpServletRequest request) {
-		boolean status=request.getSession().getAttribute("user")!=null?true:false;
 		ModelAndView mv = new ModelAndView();
-		System.out.println(status);
+		boolean status=request.getSession().getAttribute("user")!=null?true:false;
+		HttpSession session = request.getSession();
+		Account newAccount = (Account) session.getAttribute("newAccount");
+		
+		
 		if(status) {
-			boolean newAccount=request.getSession().getAttribute("newAccount")!=null?true:false;
-			if(newAccount) {
-				Teacher teacher = new Teacher();
-				mv.addObject("teacher", teacher);
-				mv.addObject("user",(Account)request.getSession().getAttribute("user"));
-				mv.setViewName("themgiaovien");
-			}else {
-				mv.setViewName("redirect:/admin/themtaikhoan");
-			}
-			
-		} else {
+			List<Chucvu> chucvus = chucvuService.findAll();
+			Teacher teacher = new Teacher();
+			mv.addObject("chucvus", chucvus);
+			mv.addObject("teacher", teacher);
+			mv.addObject("user",(Account)request.getSession().getAttribute("user"));  
+			mv.addObject("typeofaccount", newAccount.getTypeOfAccount().toString());
+			mv.setViewName("themtaikhoan");
+		}else {
 			mv.setViewName("redirect:/login");
 		}
 		return mv;
 	}
 	
-	@PostMapping("/themgiaovien")
-	public ModelAndView themgiaovien(@ModelAttribute Teacher teacher, HttpServletRequest request) {
-		boolean status=request.getSession().getAttribute("user")!=null?true:false;
+	@PostMapping("/themtaikhoan/themgiaovien")
+	public ModelAndView themgiaovien(@ModelAttribute Teacher teacher, @RequestParam("chucvuid") int chucvuid, HttpServletRequest request) {
 		ModelAndView mv = new ModelAndView();
-		System.out.println(status);
+		boolean status=request.getSession().getAttribute("user")!=null?true:false;
+		HttpSession session = request.getSession();
+		
 		if(status) {
-			Account newAccount = (Account) request.getSession().getAttribute("newAccount");
-			teacher.setAccount(newAccount);
-			accountRepository.save(newAccount);
+			Chucvu chucvu = chucvuService.findById(chucvuid);
+			Account account = (Account) session.getAttribute("newAccount");
+			teacher.setAccount(account);
+			Ngaychucvu ngaychucvu = new Ngaychucvu();
+			ngaychucvu.setChucvu(chucvu);
+			ngaychucvu.setTeacher(teacher);
+			ngaychucvu.setNgaynhamchuc();
+			accountRepository.save(account);
 			teacherRepository.save(teacher);
-			HttpSession session = request.getSession();
+			ngaychucvuRepository.save(ngaychucvu);
 			session.removeAttribute("newAccount");
-			System.out.println("teacher saved -> Completed");
 			mv.setViewName("redirect:/admin");
-		} else {
+		}else {
 			mv.setViewName("redirect:/login");
 		}
 		return mv;
 	}
 	
-	@GetMapping("/themhocsinh")
+	
+	@GetMapping("/themtaikhoan/themhocsinh")
 	public ModelAndView themhocsinh(HttpServletRequest request) {
+		ModelAndView mv = new ModelAndView();
+		boolean status=request.getSession().getAttribute("user")!=null?true:false;
+		HttpSession session = request.getSession();
+		Account newAccount = (Account) session.getAttribute("newAccount");
+		
+		if(status) {
+			Student student = new Student();
+			mv.addObject("student", student);
+			mv.addObject("user",(Account)request.getSession().getAttribute("user"));  
+			mv.addObject("typeofaccount", newAccount.getTypeOfAccount().toString());
+			mv.setViewName("themtaikhoan");
+		}else {
+			mv.setViewName("redirect:/login");
+		}
+		return mv;
+	}
+	
+	@PostMapping("/themtaikhoan/themhocsinh")
+	public ModelAndView themhocsinh(@ModelAttribute Student student, HttpServletRequest request) {
+		ModelAndView mv = new ModelAndView();
+		boolean status=request.getSession().getAttribute("user")!=null?true:false;
+		HttpSession session = request.getSession();
+		
+		if(status) {
+			Account account = (Account) session.getAttribute("newAccount");
+			student.setAccount(account);
+			studentRepository.save(student);
+			session.removeAttribute("newAccount");
+			mv.setViewName("redirect:/admin");
+		}else {
+			mv.setViewName("redirect:/login");
+		}
+		return mv;
+	}
+	
+	// Them Chuc Vu
+	@GetMapping("/themchucvu")
+	public ModelAndView themchucvu(HttpServletRequest request) {
 		boolean status=request.getSession().getAttribute("user")!=null?true:false;
 		ModelAndView mv = new ModelAndView();
 		System.out.println(status);
 		if(status) {
-			boolean newAccount=request.getSession().getAttribute("newAccount")!=null?true:false;
-			if(newAccount) {
-				Student student = new Student();
-				mv.addObject("student", student);
-				mv.addObject("user",(Account)request.getSession().getAttribute("user"));
-				mv.setViewName("themhocsinh");
-			}else {
-				mv.setViewName("redirect:/admin/themtaikhoan");
-			}
-			
+			List<Chucvu> chucvus = chucvuService.findAll();
+			Chucvu chucvu = new Chucvu();
+			mv.addObject("chucvus", chucvus);
+			mv.addObject("chucvu", chucvu);
+			mv.addObject("user",(Account)request.getSession().getAttribute("user"));
+			mv.setViewName("themchucvu");
 		} else {
 			mv.setViewName("redirect:/login");
 		}
 		return mv;
 	}
 	
-	@PostMapping("/themhocsinh")
-	public ModelAndView themhocsinh(@ModelAttribute Student student, HttpServletRequest request) {
+	@PostMapping("/themchucvu")
+	public ModelAndView themchucvu(@ModelAttribute Chucvu chucvu, HttpServletRequest request) {
 		boolean status=request.getSession().getAttribute("user")!=null?true:false;
 		ModelAndView mv = new ModelAndView();
 		System.out.println(status);
 		if(status) {
-			Account newAccount = (Account) request.getSession().getAttribute("newAccount");
-			student.setAccount(newAccount);
-			accountRepository.save(newAccount);
-			studentRepository.save(student);
-			HttpSession session = request.getSession();
-			session.removeAttribute("newAccount");
-			System.out.println("student saved -> Completed");
+			chucvuRepository.save(chucvu);
+			mv.addObject("user",(Account)request.getSession().getAttribute("user"));
 			mv.setViewName("redirect:/admin");
 		} else {
 			mv.setViewName("redirect:/login");
 		}
 		return mv;
 	}
+	
+	
 	
 	@GetMapping("/configaccount")
 	public ModelAndView configaccount(HttpServletRequest request) {

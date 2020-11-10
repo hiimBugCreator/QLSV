@@ -97,6 +97,7 @@
   .wrapper .sidebar .sidebar-menu .item .menu-btn:hover{
     color: #4CCEE8;
   }
+  
   .wrapper .sidebar .sidebar-menu .item .menu-btn i{
     margin-right: 20px;
   }
@@ -144,96 +145,24 @@
   .wrapper .main-container
   {
     position: relative;
-    padding: 30px;
-    transition: 0.3s;
-    margin-top: 100px;
-    margin-left: 270px;
-    width: 85%;
-    height: 900px;
-    background: #fff;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, .5);
-  }
-  .wrapper .main-container .text
-  {
-    border-bottom: 1px solid #2F323A;
-    padding-bottom: 20px;
-  }
-  .wrapper .main-container .edit .input 
-  {
     display: flex;
     flex-wrap: wrap;
-    margin-top: 20px;
-  }
-  .wrapper .main-container .edit .input div
-  {
-      margin-right: 20px;
-      margin-bottom: 20px;
-  }
-  .wrapper .main-container .edit .input input
-  {
-      outline: none;
-      background: none;
-      background: #eee;
-      border: none;
-      height: 30px;
-      width: 300px;
-      line-height: 30px;
-      color: #2F323A;
-      font-size: 1em;
-      padding: 0 10px;
-  }
-  .wrapper .main-container .edit .input form .text-box
-  {
-    font-size: 1em;
-    color: #2F323A;
-    margin-bottom: 10px;    
-  }
-  .wrapper .main-container .edit .text-box span
-  {
-      color: #000;
-      font-size: 1.5em;
+    padding: 15px;
+    transition: 0.3s;
+    margin-top: 100px;
+    margin-left: 240px;
+    height: 650px;
   }
   .wrapper.collapse .sidebar{
     width: 70px;
   }
+  
   .wrapper.collapse .sidebar .profile img,
   .wrapper.collapse .sidebar .profile p,
   .wrapper.collapse .sidebar a span{
     display: none;
   }
-  .wrapper .main-container .edit input[type="submit"]
-  {
-      max-width: 130px;
-      cursor: pointer;
-      background: #2F323A;
-      color: #fff;
-      font-size: 14px;
-      font-weight: 500;
-      letter-spacing: 1px;
-  }
-  .wrapper .main-container .bottom input
-  {
-    outline: none;
-    background: none;
-    background: #eee;
-    border: none;
-    height: 30px;
-    width: 300px;
-    line-height: 30px;
-    color: #2F323A;
-    font-size: 1em;
-    padding: 0 10px;
-  }
-  .wrapper .main-container .bottom input[type="submit"]
-  {
-    max-width: 130px;
-    cursor: pointer;
-    background: #2F323A;
-    color: #fff;
-    font-size: 14px;
-    font-weight: 500;
-    letter-spacing: 1px;
-  }
+  
   .wrapper.collapse .sidebar .sidebar-menu .item .menu-btn{
     font-size: 23px;
   }
@@ -243,6 +172,64 @@
     padding-left: 3px;
   }
   
-  .wrapper.collapse .main-container{
+  .wrapper.collapse .main-container
+{
     margin-left: 70px;
-  }
+}
+.wrapper .main-container .formbox
+{
+  width: 50%;
+  overflow: hidden;
+  padding: 10px;
+  display: flex;
+  margin: 10px;
+  justify-content: space-between;
+  top: 50%;   
+}
+.wrapper .main-container .formbox .content
+{
+    position: relative;
+    border: 1px solid #2F323A;
+    padding: 10px;
+    width: 100%;
+    margin: 0 5px;
+}
+.wrapper .main-container .formbox .content h1
+{
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: #2F323A;
+    border-bottom: 2px solid #2F323A;
+    display: inline-block;
+}
+.wrapper .main-container .formbox .content .text h2
+{
+    font-size: 1.2em;
+    color: #2F323A;
+    margin-bottom: 10px;
+}
+.wrapper .main-container .formbox .content .text input
+{
+    width: 100%;
+    padding: 5px 10px;
+    outline: none;
+    border: 1px solid #2F323A;
+    background: #fff;
+    color: #2F323A;
+}
+.wrapper .main-container .formbox .content .text input[type="submit"]
+{
+    max-width: 100px;
+    margin-top: 10px;
+    background: #2F323A;
+    color: #fff;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+.wrapper .main-container.hide
+{
+  display: none;
+}  
+                             

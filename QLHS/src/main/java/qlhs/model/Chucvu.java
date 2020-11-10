@@ -2,6 +2,8 @@ package qlhs.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -19,6 +21,10 @@ public class Chucvu {
 	@Column(name = "tenchucvu")
 	private String tenchucvu;
 
+	
+	public Chucvu() {
+		super();
+	}
 	public int getId() {
 		return id;
 	}
@@ -26,14 +32,18 @@ public class Chucvu {
 	public void setId(int id) {
 		this.id = id;
 	}
-
 	public String getTenchucvu() {
 		return tenchucvu;
 	}
-
 	public void setTenchucvu(String tenchucvu) {
 		this.tenchucvu = tenchucvu;
 	}
+	
+	
+	
+
+	
+	
 	
 	
 }

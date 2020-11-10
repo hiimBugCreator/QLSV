@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>Sidebar Dashboard Template With Sub Menu</title>
-        <link rel="stylesheet" th:href="@{/css/stylethemhocsinh.css}">
+        <link rel="stylesheet" th:href="@{/css/themchucvu.css}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
@@ -35,7 +35,6 @@
                         </a>
                         <div class="sub-menu">
                             <a th:href="@{/admin/tatcahocsinh}"><i class="fas fa-user-graduate"></i><span>TatCaHocSinh</span></a>
-                            <a th:href="@{/admin/themhocsinh}"><i class="fas fa-user-plus"></i><span>ThemHocSinh</span></a>
                             <a th:href="@{/admin/timkiemhocsinh}"><i class="fas fa-search"></i><span>TìmKiem</span></a>
                         </div>
                     </li>
@@ -45,15 +44,9 @@
                         </a>
                         <div class="sub-menu">
                             <a th:href="@{/admin/tatcagiaovien}"><i class="fas fa-chalkboard-teacher"></i><span>TatCaGiaoVien</span></a>
-                            <a th:href="@{/admin/themgiaovien}"><i class="fas fa-user-plus"></i><span>ThemGiaoVien</span></a>
                             <a th:href="@{/admin/timkiemgiaovien}"><i class="fas fa-search"></i><span>TimKiem</span></a>
                         </div>
-                    </li>
-                    <li class="item" id="settings">
-                        <a href="#settings" class="menu-btn">
-                            <i class="fas fa-calendar-alt"></i><span>Lop</span>
-                        </a>
-                    </li>
+                    </li>s
                     <li class="item" id="settings">
                         <a href="#settings" class="menu-btn">
                             <i class="fas fa-calendar-alt"></i><span>ThoiKhoaBieu</span>
@@ -71,71 +64,47 @@
                         <div class="sub-menu">
                             <a th:href="@{/admin/tatcataikhoan}"><i class="fas fa-chalkboard-teacher"></i><span>TatCaTaiKhoan</span></a>
                             <a th:href="@{/admin/themtaikhoan}"><i class="fas fa-user-plus"></i><span>ThemTaiKhoan</span></a>
+                            <a th:href="@{/admin/themchucvu}"><i class="fas fa-briefcase"></i><span>ThemChucVu</span></a>
                         </div>
                     </li>
                     <li class="item">
-                        <a th:href="@{/login/logout}" class="menu-btn">
-                        <i class="fas fa-sign-out-alt"></i><div>Đăng Xuất khỏi tài khoản:</div><span th:text="${user.tentaikhoan}"></span>
+                        <a href="#" class="menu-btn">
+                        <i class="fas fa-sign-out-alt"></i><span>DangXuat</span>
                     </a>
                     </li>
                 </div>
             </div>
             <!--sidebar end-->
             <!--main container start-->
-            <div class="main-container">
-                <div class="text">
-                    <h2>ThemHocSinh</h2>
-                </div>
-                    <form class="edit" th:action="@{/admin/themhocsinh}" th:object="${student}" method="post">
-                        <div class="input">
-                            <div>
-                                <div class="text-box">MaHocSinh</div>
-                                <input type="text" th:field="*{mshs}">
-                            </div>
-                            <div>
-                                <div class="text-box">HoVaTen</div>
-                                <input type="text" th:field="*{hoten}">
-                            </div>
-                            <div>
-                                <div class="text-box">PhuHuynh</div>
-                                <input type="text" th:field="*{tenphuhuynh}" >
-                            </div>
-                            <div>
-                                <div class="text-box">GioiTinh</div>
-                                <select th:field="*{gioitinh}">
-							         <option value="Male">Male</option>
-							         <option value="Female">Female</option>
-                                 </select>
-                            </div>
-                            <div>
-                                <div class="text-box">NgaySinh</div>
-                                <input type="date" name="" th:field="*{ngaysinh}">
-                            </div>
-                            <div>
-                                <div class="text-box">NoiSinh</div>
-                                <input type="text" th:field="*{noisinh}">
-                            </div>
-                            <div>
-                                <div class="text-box">DanToc</div>
-                                <input type="text" th:field="*{dantoc}">
-                            </div>
-                            <div>
-                                <div class="text-box">DiaChi</div>
-                                <input type="text" th:field="*{diachi}">
-                            </div>
-                            <div>
-                                <div class="text-box">UploadAnh <span>(300px X 300px)</span></div>
-                                <input type="submit" value="Choose File">
+        <div class="main-container">
+            <div class="formbox">  
+                    <div class="content">
+                        <h1>ThemChucVu</h1>
+                        <div class="text">
+                        <form th:action="@{/admin/themchucvu}" th:object="${chucvu}" method="post">
+                            <h2>TenChucVu</h2>
+                            <input type="text" name="" th:field="*{tenchucvu}">
+                            <input type="submit" value="Luu">
+                        </form>
+                        </div>
+                    </div>  
+                        <div class="content">
+                            <h1>DanhSachChucVu</h1>
+                            <div class="list">
+                                <th:block th:if="${#lists.isEmpty(chucvus)}">
+									<th:block>
+										<p>No ChucVu Available</p>
+									</th:block>
+								</th:block>
+								<th:block th:unless="${#lists.isEmpty(chucvus)}">
+									<th:block th:each="chucvu : ${chucvus}">
+										<p th:text="${chucvu.tenchucvu}">None</p>
+									</th:block>
+								</th:block>
                             </div>
                         </div>
-                        <div class="bottom">
-                            <input type="submit" value="Them">
-                            <input type="reset" value="LamMoi">
-                        </div>    
-                    </form>
             </div>
-            <!--main container end-->
-        </div>    
+        </div>       
         <!--wrapper end-->
         <script th:src="@{/js/menu.js}"></script>
        </body>

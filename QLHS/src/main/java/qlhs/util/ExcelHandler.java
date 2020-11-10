@@ -13,7 +13,6 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import qlhs.model.Account;
 import qlhs.model.Student;
 import qlhs.model.Teacher;
-import qlhs.model.TypeOfAccount;
 
 public class ExcelHandler {
 	private static ExcelHandler Instance = null;
@@ -46,7 +45,7 @@ public class ExcelHandler {
 	    	//sdt
 	    	account.setSodienthoai(formatter.formatCellValue(row.getCell(3)));
 	    	//typeofAccount
-	    	account.setTypeOfAccount(TypeOfAccount.Student);
+	    	account.setTypeOfAccount("HocSinh");
 	    	//hovaten
 	    	student.setHoten(formatter.formatCellValue(row.getCell(4)));
 	    	//mshs
@@ -88,7 +87,7 @@ public class ExcelHandler {
 	    	//sdt
 	    	account.setSodienthoai(formatter.formatCellValue(row.getCell(3)));
 	    	//typeofAccount
-	    	account.setTypeOfAccount(TypeOfAccount.Teacher);
+	    	account.setTypeOfAccount("GiaoVien");
 	    	//hovaten
 	    	teacher.setHoten(formatter.formatCellValue(row.getCell(4)));
 	    	//mshs

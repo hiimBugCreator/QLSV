@@ -35,7 +35,6 @@
                         </a>
                         <div class="sub-menu">
                             <a th:href="@{/admin/tatcahocsinh}"><i class="fas fa-user-graduate"></i><span>TatCaHocSinh</span></a>
-                            <a th:href="@{/admin/themhocsinh}"><i class="fas fa-user-plus"></i><span>ThemHocSinh</span></a>
                             <a th:href="@{/admin/timkiemhocsinh}"><i class="fas fa-search"></i><span>TìmKiem</span></a>
                         </div>
                     </li>
@@ -45,15 +44,9 @@
                         </a>
                         <div class="sub-menu">
                             <a th:href="@{/admin/tatcagiaovien}"><i class="fas fa-chalkboard-teacher"></i><span>TatCaGiaoVien</span></a>
-                            <a th:href="@{/admin/themgiaovien}"><i class="fas fa-user-plus"></i><span>ThemGiaoVien</span></a>
                             <a th:href="@{/admin/timkiemgiaovien}"><i class="fas fa-search"></i><span>TimKiem</span></a>
                         </div>
-                    </li>
-                    <li class="item" id="settings">
-                        <a href="#settings" class="menu-btn">
-                            <i class="fas fa-calendar-alt"></i><span>Lop</span>
-                        </a>
-                    </li>
+                    </li>s
                     <li class="item" id="settings">
                         <a href="#settings" class="menu-btn">
                             <i class="fas fa-calendar-alt"></i><span>ThoiKhoaBieu</span>
@@ -71,11 +64,12 @@
                         <div class="sub-menu">
                             <a th:href="@{/admin/tatcataikhoan}"><i class="fas fa-chalkboard-teacher"></i><span>TatCaTaiKhoan</span></a>
                             <a th:href="@{/admin/themtaikhoan}"><i class="fas fa-user-plus"></i><span>ThemTaiKhoan</span></a>
+                            <a th:href="@{/admin/themchucvu}"><i class="fas fa-briefcase"></i><span>ThemChucVu</span></a>
                         </div>
                     </li>
                     <li class="item">
-                        <a th:href="@{/login/logout}" class="menu-btn">
-                        <i class="fas fa-sign-out-alt"></i><div>Đăng Xuất khỏi tài khoản:</div><span th:text="${user.tentaikhoan}"></span>
+                        <a href="#" class="menu-btn">
+                        <i class="fas fa-sign-out-alt"></i><span>DangXuat</span>
                     </a>
                     </li>
                 </div>
