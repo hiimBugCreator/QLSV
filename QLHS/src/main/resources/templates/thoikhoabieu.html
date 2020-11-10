@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <title>Sidebar Dashboard Template With Sub Menu</title>
+        <link rel="stylesheet" th:href="@{/css/thoikhoabieu.css}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </head>
+    <body>
+
+        <!--wrapper start-->
+        <div class="wrapper">
+            <!--header menu start-->
+            <div class="header">
+                <div class="header-menu">
+                    <div class="title">Chao<span>Ban</span></div>
+                    <div class="sidebar-btn" onclick="toggleMenu();">
+                        <i class="fas fa-bars" ></i>
+                    </div>
+                </div>
+            </div>
+            <!--header menu end-->
+            <!--sidebar start-->
+            <div class="sidebar">
+                <div class="sidebar-menu">
+                    <li class="item" id="dashboard">
+                        <a th:href="@{/teacher}" class="menu-btn">
+                            <i class="fas fa-info"></i><span>ThongTin</span>
+                        </a>
+                    </li>
+                    <li class="item" id="profile">
+                        <a href="#" class="menu-btn">
+                            <i class="fas fa-print"></i><span>NhapDiem</i></span>
+                        </a>
+                    </li>
+                    <li class="item" id="messages">
+                        <a a th:href="@{/teacher/thoikhoabieu}" class="menu-btn">
+                            <i class="far fa-calendar-plus"></i><span>ThoiKhoaBieu</i></span>
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a th:href="@{/login/logout}" class="menu-btn">
+                        <i class="fas fa-sign-out-alt"></i><span>DangXuat</span>
+                    </a>
+                    </li>
+                </div>
+            </div>
+            <!--sidebar end-->
+            <!--main container start-->
+        <div class="main-container">
+            <div class="form-box">
+                <div class="text">
+                    <h2>ThoiKhoaBieu</h2>
+                </div>
+                <div class="table">
+                    <h2>Sang</h2>
+                    <table>
+                        <tr>
+                        <th>T2</th>
+                        <th>T3</th>
+                        <th>T4</th>
+                        <th>T5</th>
+                        <th>T6</th>
+                        <th>T7</th>
+                        </tr>
+                        <tr>
+                        <td>Peter</td>
+                        <td>Griffin</td>
+                        <td>$100</td>
+                        <td>$100</td>
+                        <td>$100</td>
+                        <td>$100</td>
+                        </tr> 
+                      </table>
+                      <h2>Chieu</h2>
+                      <table>
+                          <tr>
+                          <th>T2</th>
+                          <th>T3</th>
+                          <th>T4</th>
+                          <th>T5</th>
+                          <th>T6</th>
+                          <th>T7</th>
+                          </tr>
+                          <tr>
+                          <td>Peter</td>
+                          <td>Griffin</td>
+                          <td>$100</td>
+                          <td>$100</td>
+                          <td>$100</td>
+                          <td>$100</td>
+                          </tr> 
+                        </table>
+                </div>
+            </div>
+        </div>       
+        <!--wrapper end-->
+        <script th:src="@{/js/menu.js}"></script>
+       </body>
+</html>
+                           

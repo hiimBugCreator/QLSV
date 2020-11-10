@@ -22,4 +22,6 @@ public interface AccountProcudureRepository extends JpaRepository<Account,Intege
 	@Query(value = "{CALL changepassaccount( ?,?) }",nativeQuery = true)
 	void changePass(String passnew, String id);
 	
+	@Query(value = "{CALL searchbyemail( ?) }", nativeQuery = true)
+	List<Account> searchByEmail(String email);
 }

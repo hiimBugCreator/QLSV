@@ -160,28 +160,17 @@
   }
   .wrapper .main-container .edit .input
   {
+    display: flex;
+    flex-wrap: wrap;
     margin-top: 20px;
-    align-items: center;
-    justify-content: center;
-    margin: 20px;
-    text-align: center;
   }
-  .wrapper .main-container .input input[type="text"]:focus
+  .wrapper .main-container .edit .input div
   {
-    border: 2px solid #2F323A;
-    background: #2F323A;
-    color: #fff;
-    box-shadow: 0 2px 2px rgba(0, 0, 0, .5);
+      margin-right: 20px;
+      margin-bottom: 20px;
   }
-  .wrapper .main-container .edit .input
-  {
-    margin-top: 20px;
-    align-items: center;
-    justify-content: center;
-    margin: 20px;
-    text-align: center;
-  }
-  .wrapper .main-container .edit .input input
+  .wrapper .main-container .edit .input input,
+  .wrapper .main-container .edit .input select
   {
       outline: none;
       background: none;
@@ -190,14 +179,9 @@
       height: 30px;
       width: 300px;
       line-height: 30px;
+      color: #2F323A;
       font-size: 1em;
       padding: 0 10px;
-      transition: .5s;
-      margin-top: 10px;
-  }
-  .wrapper .main-container .edit .bottom
-  {
-    text-align: center;
   }
   .wrapper .main-container .edit .input form .text-box
   {

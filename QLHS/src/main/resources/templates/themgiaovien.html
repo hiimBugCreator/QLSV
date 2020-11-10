@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>Sidebar Dashboard Template With Sub Menu</title>
-        <link rel="stylesheet" th:href="@{/css/stylequanli.css}">
+        <link rel="stylesheet" th:href="@{/css/stylethemgv.css}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
@@ -14,9 +14,7 @@
             <!--header menu start-->
             <div class="header">
                 <div class="header-menu">
-                    <a th:href="@{/admin}" class="menu-btn">
-                    	<div class="title">Quản Lí<span>Trường Học</span></div>
-                    </a>
+                    <div class="title">QuanLi<span>TruongHoc</span></div>
                     <div class="sidebar-btn" onclick="toggleMenu();">
                         <i class="fas fa-bars" ></i>
                     </div>
@@ -78,78 +76,64 @@
                     <li class="item">
                         <a th:href="@{/login/logout}" class="menu-btn">
                         <i class="fas fa-sign-out-alt"></i><div>Đăng Xuất khỏi tài khoản:</div><span th:text="${user.tentaikhoan}"></span>
-                    	</a>
+                    </a>
                     </li>
                 </div>
             </div>
             <!--sidebar end-->
             <!--main container start-->
             <div class="main-container">
-                <div class="card">
-                   <div class="icon">
-                        <i class="fas fa-user-circle"></i>
-                        <p class="titel">HocSinh</p>
-                   </div>
-                   <span class="gach"></span>
-                   <div class="sl">
-                       <p>50000</p>
-                   </div>
+                <div class="text">
+                    <h2>ThemGiaoVien</h2>
                 </div>
-                <div class="card">
-                   <div class="icon">
-                    <i class="fas fa-chalkboard-teacher"></i>
-                        <p class="titel">GiaoVien</p>
-                   </div>
-                   <span class="gach"></span>
-                   <div class="sl">
-                       <p>50000</p>
-                   </div>
-                </div>
-                <div class="card">
-                    <div class="icon">
-                        <i class="fas fa-calendar-alt"></i>
-                         <p class="titel">Lop</p>
-                    </div>
-                    <span class="gach"></span>
-                    <div class="sl">
-                        <p>50000</p>
-                    </div>
-                 </div>
-                 
-                 <div class="card2">
-                    <div class="claender">
-                        <p id="monthName"></p>
-                        <p id="dayName"></p>
-                        <p id="dayNumber"></p>
-                        <p id="year"></p>
-                    </div>
-                </div>
-                <div class="card3">
-                   <div class="hour">
-                       <div class="hr" id="hr"></div>
-                   </div>
-                   <div class="min">
-                       <div class="mn" id="mn"></div>
-                   </div>
-                   <div class="sec">
-                       <div class="sc" id="sc"></div>
-                   </div>
-               </div>
-               
-               <a th:href="@{/admin/configaccount}" class="menu-btn">
-	                 <div class="card4">
-	                    <div class="icon">
-	                        <i class="fas fa-cog"></i>
-	                         <p class="titel">Bảo mật</p>
-	                    </div>
-	                 </div>
-	             </a>
+                    <form class="edit" th:action="@{/admin/themgiaovien}" th:object="${teacher}" method="post">
+                        <div class="input">
+                            <div>
+                                <div class="text-box">MaGiaoVien</div>
+                                <input type="text" th:field="*{msgv}">
+                            </div>
+                            <div>
+                                <div class="text-box">HoVaTen</div>
+                                <input type="text" th:field="*{hoten}">
+                            </div>
+                            <div>
+                                <div class="text-box">GioiTinh</div>
+                                <select th:field="*{gioitinh}">
+							         <option value="Male">Male</option>
+							         <option value="Female">Female</option>
+                                 </select>
+                            </div>
+                            <div>
+                                <div class="text-box">NgaySinh</div>
+                                <input type="date" name="" th:field="*{ngaysinh}">
+                            </div>
+                            <div>
+                                <div class="text-box">NoiSinh</div>
+                                <input type="text" th:field="*{noisinh}">
+                            </div>
+                            <div>
+                                <div class="text-box">DanToc</div>
+                                <input type="text" th:field="*{dantoc}">
+                            </div>
+                            <div>
+                                <div class="text-box">DiaChi</div>
+                                <input type="text" th:field="*{diachi}">
+                            </div>
+                            <div>
+                                <div class="text-box">UploadAnh <span>(300px X 300px)</span></div>
+                                <input type="submit" value="Choose File">
+                            </div>
+                        </div>
+                        <div class="bottom">
+                            <input type="submit" value="Them">
+                            <input type="reset" value="LamMoi">
+                        </div>    
+                    </form>
+            </div>
             <!--main container end-->
-        </div>
+        </div>    
         <!--wrapper end-->
-        <script th:src="@{/js/menu.js}"></script>
-        <script th:src="@{/js/day.js}"></script>
-        <script th:src="@{/js/clock.js}"></script>
+        <script th:src="@{js/menu.js}"></script>
        </body>
 </html>
                            

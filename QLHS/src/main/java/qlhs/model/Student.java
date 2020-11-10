@@ -122,6 +122,14 @@ public class Student {
 	public void setDiachi(String diachi) {
 		this.diachi = diachi;
 	}
+
+	public Account getAccount() {
+		return account;
+	}
+
+	public void setAccount(Account account) {
+		this.account = account;
+	}
 	
 	
 }

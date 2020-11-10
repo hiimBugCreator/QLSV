@@ -5,201 +5,120 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
     <style>
-      html, body {
-      min-height: 100%;
-      }
-      body, div, form, input, select, p { 
-      padding: 0;
-      margin: 0;
-      outline: none;
-      font-family: Roboto, Arial, sans-serif;
-      font-size: 16px;
-      color: #eee;
-      }
-      body {
-      background: url("/uploads/media/default/0001/01/b5edc1bad4dc8c20291c8394527cb2c5b43ee13c.jpeg") no-repeat center;
-      background-size: cover;
-      }
-      h1, h2 {
-      text-transform: uppercase;
-      font-weight: 400;
-      }
-      h2 {
-      margin: 0 0 0 8px;
-      }
-      .main-block {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100%;
-      padding: 25px;
-      background: rgba(0, 0, 0, 0.5); 
-      }
-      .left-part, form {
-      padding: 25px;
-      }
-      .left-part {
-      text-align: center;
-      }
-      .fa-graduation-cap {
-      font-size: 72px;
-      }
-      form {
-      background: rgba(0, 0, 0, 0.7); 
-      }
-      .title {
-      display: flex;
-      align-items: center;
-      margin-bottom: 20px;
-      }
-      .info {
-      display: flex;
-      flex-direction: column;
-      }
-      input, select {
-      padding: 5px;
-      margin-bottom: 30px;
-      background: transparent;
-      border: none;
-      border-bottom: 1px solid #eee;
-      }
-      input::placeholder {
-      color: #eee;
-      }
-      option:focus {
-      border: none;
-      }
-      option {
-      background: black; 
-      border: none;
-      }
-      .checkbox input {
-      margin: 0 10px 0 0;
-      vertical-align: middle;
-      }
-      .checkbox a {
-      color: #26a9e0;
-      }
-      .checkbox a:hover {
-      color: #85d6de;
-      }
-      .btn-item, button {
-      padding: 10px 5px;
-      margin-top: 20px;
-      border-radius: 5px; 
-      border: none;
-      background: #26a9e0; 
-      text-decoration: none;
-      font-size: 15px;
-      font-weight: 400;
-      color: #fff;
-      }
-      .btn-item {
-      display: inline-block;
-      margin: 20px 5px 0;
-      }
-      button {
-      width: 100%;
-      }
-      button:hover, .btn-item:hover {
-      background: #85d6de;
-      }
-      @media (min-width: 568px) {
-      html, body {
-      height: 100%;
-      }
-      .main-block {
-      flex-direction: row;
-      height: calc(100% - 50px);
-      }
-      .left-part, form {
-      flex: 1;
-      height: auto;
-      }
-      }
+     	@import url(https://fonts.googleapis.com/css?family=Open+Sans:700,300);
+
+.frame {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 400px;
+	height: 400px;
+	margin-top: -200px;
+	margin-left: -200px;
+	border-radius: 2px;
+	box-shadow: 4px 8px 16px 0 rgba(0, 0, 0, 0.1);
+	overflow: hidden;
+	background: linear-gradient(to top right, darkmagenta 0%, hotpink 100%);
+	color: #333;
+	font-family: "Open Sans", Helvetica, sans-serif;
+}
+
+.center {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 300px;
+	height: 260px;
+	border-radius: 3px;
+	box-shadow: 8px 10px 15px 0 rgba(0, 0, 0, 0.2);
+	background: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	flex-direction: column;
+}
+form{
+display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	flex-direction: column;
+}
+
+.title {
+	width: 100%;
+	height: 50px;
+	border-bottom: 1px solid #999;
+	text-align: center;
+}
+
+h1 {
+	font-size: 16px;
+	font-weight: 300;
+	color: #666;
+}
+
+.dropzone {
+	width: 100px;
+	height: 80px;
+	margin-bottom: 10px;
+	border: 1px dashed #999;
+	border-radius: 3px;
+	text-align: center;
+}
+
+.upload-icon {
+	margin: 25px 2px 2px 2px;
+}
+
+.upload-input {
+	position: relative;
+	top: -62px;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+}
+
+.btn {
+	display: block;
+	width: 140px;
+	height: 40px;
+	background: darkmagenta;
+	color: #fff;
+	border-radius: 3px;
+	border: 0;
+	box-shadow: 0 3px 0 0 hotpink;
+	transition: all 0.3s ease-in-out;
+	font-size: 14px;
+}
+
+.btn:hover {
+	background: rebeccapurple;
+	box-shadow: 0 3px 0 0 deeppink;
+}
+     	
     </style>
   </head>
   <body>
-    <div class="main-block">
-      <div class="left-part">
-        <i class="fas fa-graduation-cap"></i>
-        <h1>Register to our courses</h1>
-        <p>W3docs provides free learning materials for programming languages like HTML, CSS, Java Script, PHP etc.</p>
-        <div class="btn-group">
-          <a class="btn-item" href="https://www.w3docs.com/learn-html.html">Learn HTML</a>
-          <a class="btn-item" href="https://www.w3docs.com/quiz/#">Select Quiz</a>
-        </div>
-      </div>
-      <th:block th:switch="${typeofaccount}">
-      
-		<div th:case="null">
-		    <form th:action="@{/template}" th:object="${account}" method="post">
-		      <div class="title">
-		        <i class="fas fa-pencil-alt"></i> 
-		        <h2>Register here</h2>
-		      </div>
-		      <div class="info">
-		        <input class="fname" type="text" name="" th:field="*{tentaikhoan}" placeholder="username">
-		        <input type="text" name="" th:field="*{email}" placeholder="Email">
-		        <input type="text" name="" th:field="*{sodienthoai}" placeholder="Phone number">
-		        <input type="password" name="" th:field="*{matkhau}" placeholder="Password">
-		        <select th:field="*{typeOfAccount}">
-		         <option th:each="type : ${T(qlhs.model.TypeOfAccount).values()}" 
-		          	th:value="${type}"
-		         	th:text="${type}">
-		         </option>
-		        </select>
-		      </div>
-		      <div class="checkbox">
-		        <input type="checkbox" name="checkbox"><span>I agree to the <a href="https://www.w3docs.com/privacy-policy">Privacy Poalicy for W3Docs.</a></span>
-		      </div>
-		      <button type="submit">Submit</button>
-		    </form>
+    <div class="frame">
+	<div class="center">
+		<div class="title">
+			<h1>Drop file to upload</h1>
 		</div>
-		
-		<!-- Teacher Form -->
-		<div th:case="'Teacher'">
-			<form th:action="@{/template/Teacher-form}" th:object="${teacher}" method="post">
-		      <div class="title">
-		        <i class="fas fa-pencil-alt"></i> 
-		        <h2>Register Teacher here</h2>
-		      </div>
-		      <div class="info">
-		        <input class="fname" type="text" name="" th:field="*{hoten}" placeholder="Fullname">
-		        <input type="text" name="" th:field="*{msgv}" placeholder="MSGV">
-		        <input type="text" name="" th:field="*{gioitinh}" placeholder="Gender">
-		        <input type="date" name="" th:field="*{ngaysinh}" placeholder="BirthDate">
-		        <input type="text" name="" th:field="*{noisinh}" placeholder="BirthPlace">
-		        <input type="text" name="" th:field="*{dantoc}" placeholder="dantoc">
-		        <input type="text" name="" th:field="*{diachi}" placeholder="diachi">
-		      </div>
-		      <button type="submit">Submit</button>
-		    </form>
-		</div>
-		
-		<!-- Student Form -->
-		<div th:case="'Student'">
-			<form th:action="@{/template/Student-form}" th:object="${student}" method="post">
-		      <div class="title">
-		        <i class="fas fa-pencil-alt"></i> 
-		        <h2>Register Student here</h2>
-		      </div>
-		      <div class="info">
-		        <input class="fname" type="text" name="" th:field="*{hoten}" placeholder="Fullname">
-		        <input type="text" name="" th:field="*{mshs}" placeholder="MSHS">
-		        <input type="text" name="" th:field="*{tenphuhuynh}" placeholder="Parents">
-		        <input type="text" name="" th:field="*{gioitinh}" placeholder="Gender">
-		        <input type="date" name="" th:field="*{ngaysinh}" placeholder="BirthDate">
-		        <input type="text" name="" th:field="*{noisinh}" placeholder="BirthPlace">
-		        <input type="text" name="" th:field="*{dantoc}" placeholder="dantoc">
-		        <input type="text" name="" th:field="*{diachi}" placeholder="diachi">
-		      </div>
-		      <button type="submit">Submit</button>
-		    </form>
-		</div>
-		
-      </th:block>
-    </div>
+		<form th:action="@{/template}" method="post" enctype="multipart/form-data">
+
+			<div class="dropzone">
+				<img src="http://100dayscss.com/codepen/upload.svg" class="upload-icon" />
+				<input type="file" th:name="file" class="upload-input" />
+			</div>
+	
+			<button type="submit" class="btn" name="uploadbutton">Upload file</button>
+		</form>
+	</div>
+</div>
+<!-- original pen: https://codepen.io/roydigerhund/pen/ZQdbeN  -->
+
+<!-- NO JS ADDED YET -->
   </body>
 </html>

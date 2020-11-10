@@ -45,7 +45,7 @@
   .wrapper .header .header-menu .sidebar-btn{
     color: #fff;
     position: absolute;
-    margin-left: 300px;
+    margin-left: 250px;
     font-size: 22px;
     font-weight: 900;
     cursor: pointer;
@@ -101,34 +101,6 @@
   .wrapper .sidebar .sidebar-menu .item .menu-btn i{
     margin-right: 20px;
   }
-  
-  .wrapper .sidebar .sidebar-menu .item .menu-btn .drop-down{
-    float: right;
-    font-size: 12px;
-    margin-top: 3px;
-  }
-  
-  .wrapper .sidebar .sidebar-menu .item .sub-menu{
-    background: #3498DB;
-    overflow: hidden;
-    max-height: 0;
-    transition: 0.3s;
-  }
-  
-  .wrapper .sidebar .sidebar-menu .item .sub-menu a{
-    display: block;
-    position: relative;
-    color: #fff;
-    white-space: nowrap;
-    font-size: 15px;
-    padding: 20px;
-    transition: 0.3s;
-  }
-  
-  .wrapper .sidebar .sidebar-menu .item .sub-menu a:hover{
-    background: #55B1F0;
-  }
-  
   .wrapper .sidebar .sidebar-menu .item .sub-menu a:not(last-child){
     border-bottom: 1px solid #8FC5E9;
   }
@@ -137,11 +109,6 @@
     padding-right: 20px;
     font-size: 10px;
   }
-  
-  .wrapper .sidebar .sidebar-menu .item:target .sub-menu{
-    max-height: 500px;
-  }
-  
   .wrapper .main-container
   {
     position: relative;
@@ -181,11 +148,9 @@
   height: 800px;
   overflow: hidden;
   background: #fff;
-  display: flex;
   padding: 10px;
   justify-content: space-between;
   transition: .5s;
-  flex-wrap: wrap;
   position: relative;
 }
 .wrapper .main-container .form-box .text h2
@@ -195,52 +160,12 @@
   margin-left: 10px;
   font-size: 2em;
   margin-top: 20px;
-}
-.wrapper .main-container .form-box .form
-{
-  position: relative;
-  display: flex;
-}
-.wrapper .main-container .form-box .form .inpuxbox
-{
-  margin-top: 20px;
-  margin-right: 10px;
-}
-.wrapper .main-container .form-box .form .inpuxbox input
-{
-  width: 250px;
-  border-radius: 20px;
-  border: none;
-  box-shadow: none;
-  outline: none;
-  border: 2px solid #2F323A;
-  height: 40px;
-  padding: 10px;
-  line-height: 40px;
+  text-align: center;
 }
 ::-webkit-input-placeholder
 {
   color: #2F323A;
   font-weight: 500;
-}
-.wrapper .main-container .form-box .form .inpuxbox button
-{
-  border: none;
-  outline: none;
-  cursor: pointer;
-  padding: 10px 20px;
-  background: #2F323A;
-  color: #fff;
-  max-width: 120px;
-  height: 40px;
-  border-radius: 10px;
-}
-.wrapper .main-container .form-box .form .icon
-{
-  line-height: 40px;
-  margin-top: 20px;
-  margin-left: 20px;
-  cursor: pointer;
 }
 .wrapper .main-container .form-box .form .icon .fas
 {
@@ -258,15 +183,19 @@
   background: #2F323A;
   color: #fff;
 }
+.wrapper .main-container .form-box .table h2
+{
+    text-align: center;
+    padding: 10px 0;
+}
 .wrapper .main-container .form-box .table th, td
 {
   text-align: center;
-  padding: 8px 70px;
+  padding: 8px 105px;
 }
-.wrapper .main-container .form-box .table th, td .fas
+.wrapper .main-container .form-box .table th:nth-child(6)
 {
-  margin-right: 5px;
-  cursor: pointer;
+    color: #4CCEE8;
 }
 .wrapper .main-container.hide
 {

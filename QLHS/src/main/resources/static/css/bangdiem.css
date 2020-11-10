@@ -45,7 +45,7 @@
   .wrapper .header .header-menu .sidebar-btn{
     color: #fff;
     position: absolute;
-    margin-left: 300px;
+    margin-left: 250px;
     font-size: 22px;
     font-weight: 900;
     cursor: pointer;
@@ -101,34 +101,6 @@
   .wrapper .sidebar .sidebar-menu .item .menu-btn i{
     margin-right: 20px;
   }
-  
-  .wrapper .sidebar .sidebar-menu .item .menu-btn .drop-down{
-    float: right;
-    font-size: 12px;
-    margin-top: 3px;
-  }
-  
-  .wrapper .sidebar .sidebar-menu .item .sub-menu{
-    background: #3498DB;
-    overflow: hidden;
-    max-height: 0;
-    transition: 0.3s;
-  }
-  
-  .wrapper .sidebar .sidebar-menu .item .sub-menu a{
-    display: block;
-    position: relative;
-    color: #fff;
-    white-space: nowrap;
-    font-size: 15px;
-    padding: 20px;
-    transition: 0.3s;
-  }
-  
-  .wrapper .sidebar .sidebar-menu .item .sub-menu a:hover{
-    background: #55B1F0;
-  }
-  
   .wrapper .sidebar .sidebar-menu .item .sub-menu a:not(last-child){
     border-bottom: 1px solid #8FC5E9;
   }
@@ -137,11 +109,6 @@
     padding-right: 20px;
     font-size: 10px;
   }
-  
-  .wrapper .sidebar .sidebar-menu .item:target .sub-menu{
-    max-height: 500px;
-  }
-  
   .wrapper .main-container
   {
     position: relative;
@@ -261,7 +228,7 @@
 .wrapper .main-container .form-box .table th, td
 {
   text-align: center;
-  padding: 8px 70px;
+  padding: 8px 160px;
 }
 .wrapper .main-container .form-box .table th, td .fas
 {
