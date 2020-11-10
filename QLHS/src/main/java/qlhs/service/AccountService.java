@@ -3,6 +3,8 @@ package qlhs.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
 import qlhs.aop.SercurityAop;
@@ -14,6 +16,8 @@ public class AccountService {
 	
 	@Autowired
 	AccountProcudureRepository accountProcudureRepository;
+	
+	
 	
 	public Account checkLogin(String taikhoan, String password) {
 		boolean loginStatus = SercurityAop.LOGIN_STATUS;
@@ -30,4 +34,5 @@ public class AccountService {
 		return accounts.size() == 1 ? accounts.get(0) : null;
 		
 	}
+
 }
