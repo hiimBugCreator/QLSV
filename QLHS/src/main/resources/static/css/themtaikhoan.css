@@ -149,107 +149,110 @@
     margin-top: 100px;
     margin-left: 270px;
     width: 85%;
-    height: 900px;
+    height: 850px;
     background: #fff;
     box-shadow: 0 10px 20px rgba(0, 0, 0, .5);
-  }
-  .wrapper .main-container .text
-  {
-    border-bottom: 1px solid #2F323A;
-    padding-bottom: 20px;
-  }
-  .wrapper .main-container .edit .input
-  {
-    margin-top: 20px;
-    align-items: center;
-    justify-content: center;
-    margin: 20px;
-    text-align: center;
-  }
-  .wrapper .main-container .input input[type="text"]:focus
-  {
-    border: 2px solid #2F323A;
-    background: #2F323A;
-    color: #fff;
-    box-shadow: 0 2px 2px rgba(0, 0, 0, .5);
-  }
-  .wrapper .main-container .edit .input
-  {
-    margin-top: 20px;
-    align-items: center;
-    justify-content: center;
-    margin: 20px;
-    text-align: center;
-  }
-  .wrapper .main-container .edit .input input
-  {
-      outline: none;
-      background: none;
-      background: #eee;
-      border: none;
-      height: 30px;
-      width: 300px;
-      line-height: 30px;
-      font-size: 1em;
-      padding: 0 10px;
-      transition: .5s;
-      margin-top: 10px;
-  }
-  .wrapper .main-container .edit .bottom
-  {
-    text-align: center;
-  }
-  .wrapper .main-container .edit .input form .text-box
-  {
-    font-size: 1em;
-    color: #2F323A;
-    margin-bottom: 10px;    
-  }
-  .wrapper .main-container .edit .text-box span
-  {
-      color: #000;
-      font-size: 1.5em;
+    display: flex;
   }
   .wrapper.collapse .sidebar{
     width: 70px;
+  }
+  .wrapper .main-container  .imgBx
+  {
+    position: relative;
+    width: 50%;
+    height: 100%;
+  }
+  .wrapper .main-container  .imgBx::before
+  {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(225deg,#e91e63,#03a9f4);
+    z-index: 1;
+    mix-blend-mode: screen;
+  }
+  .wrapper .main-container  .imgBx img
+  {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .wrapper .main-container .contentbox
+  {
+    display: flex;
+    width: 50%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+  .wrapper .main-container .contentbox .fromBx
+  {
+    width: 50%;
+  }
+  .wrapper .main-container .contentbox .fromBx h2
+  {
+    color: #607d8b;
+    font-weight: 600;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    border-bottom: 4px solid #ff4584;
+    letter-spacing: 1px;
+    display: inline-block;
+  }
+  .wrapper .main-container .contentbox .fromBx .inputBx
+  {
+    margin-bottom: 20px;
+  }
+  .wrapper .main-container .contentbox .fromBx .inputBx span,
+  .wrapper .main-container .contentbox .fromBx .inputBx select
+  {
+    font-size: 16px;
+    margin-bottom: 5px;
+    display: inline-block;
+    color: #607d8b;
+    font-weight: 300;
+    font-size: 16px;
+    letter-spacing: 1px;
+  }
+  .wrapper .main-container .contentbox .fromBx .inputBx input,
+  .wrapper .main-container .contentbox .fromBx .inputBx select
+  {
+    width: 100%;
+    padding: 10px 20px;
+    outline: none;
+    font-weight: 400;
+    border: 1px solid #607d8b;
+    font-size: 16px;
+    letter-spacing: 1px;
+    color: #607d8b;
+    background: transparent;
+    border-radius: 30px;
+  }
+  .wrapper .main-container .contentbox .fromBx .inputBx input[type="submit"]
+  {
+    background: #ff4584;
+    color: #fff;
+    outline: none;
+    border: none;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  .wrapper .main-container .contentbox .fromBx .inputBx input[type="submit"]:hover
+  {
+    background: #f53677;
   }
   .wrapper.collapse .sidebar .profile img,
   .wrapper.collapse .sidebar .profile p,
   .wrapper.collapse .sidebar a span{
     display: none;
-  }
-  .wrapper .main-container .edit input[type="submit"]
-  {
-      max-width: 130px;
-      cursor: pointer;
-      background: #2F323A;
-      color: #fff;
-      font-size: 14px;
-      font-weight: 500;
-      letter-spacing: 1px;
-  }
-  .wrapper .main-container .bottom input
-  {
-    outline: none;
-    background: none;
-    background: #eee;
-    border: none;
-    height: 30px;
-    width: 300px;
-    line-height: 30px;
-    color: #2F323A;
-    font-size: 1em;
-    padding: 0 10px;
-  }
-  .wrapper .main-container .bottom input[type="submit"]
-  {
-    max-width: 130px;
-    cursor: pointer;
-    background: #2F323A;
-    color: #fff;
-    font-size: 14px;
-    font-weight: 500;
-    letter-spacing: 1px;
   }
   .wrapper.collapse .sidebar .sidebar-menu .item .menu-btn{
     font-size: 23px;

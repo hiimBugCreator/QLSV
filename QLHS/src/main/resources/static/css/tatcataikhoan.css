@@ -97,6 +97,7 @@
   .wrapper .sidebar .sidebar-menu .item .menu-btn:hover{
     color: #4CCEE8;
   }
+  
   .wrapper .sidebar .sidebar-menu .item .menu-btn i{
     margin-right: 20px;
   }
@@ -144,113 +145,24 @@
   .wrapper .main-container
   {
     position: relative;
-    padding: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 15px;
     transition: 0.3s;
     margin-top: 100px;
-    margin-left: 270px;
-    width: 85%;
-    height: 900px;
-    background: #fff;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, .5);
-  }
-  .wrapper .main-container .text
-  {
-    border-bottom: 1px solid #2F323A;
-    padding-bottom: 20px;
-  }
-  .wrapper .main-container .edit .input
-  {
-    margin-top: 20px;
-    align-items: center;
-    justify-content: center;
-    margin: 20px;
-    text-align: center;
-  }
-  .wrapper .main-container .input input[type="text"]:focus
-  {
-    border: 2px solid #2F323A;
-    background: #2F323A;
-    color: #fff;
-    box-shadow: 0 2px 2px rgba(0, 0, 0, .5);
-  }
-  .wrapper .main-container .edit .input
-  {
-    margin-top: 20px;
-    align-items: center;
-    justify-content: center;
-    margin: 20px;
-    text-align: center;
-  }
-  .wrapper .main-container .edit .input input
-  {
-      outline: none;
-      background: none;
-      background: #eee;
-      border: none;
-      height: 30px;
-      width: 300px;
-      line-height: 30px;
-      font-size: 1em;
-      padding: 0 10px;
-      transition: .5s;
-      margin-top: 10px;
-  }
-  .wrapper .main-container .edit .bottom
-  {
-    text-align: center;
-  }
-  .wrapper .main-container .edit .input form .text-box
-  {
-    font-size: 1em;
-    color: #2F323A;
-    margin-bottom: 10px;    
-  }
-  .wrapper .main-container .edit .text-box span
-  {
-      color: #000;
-      font-size: 1.5em;
+    margin-left: 240px;
+    height: 650px;
   }
   .wrapper.collapse .sidebar{
     width: 70px;
   }
+  
   .wrapper.collapse .sidebar .profile img,
   .wrapper.collapse .sidebar .profile p,
   .wrapper.collapse .sidebar a span{
     display: none;
   }
-  .wrapper .main-container .edit input[type="submit"]
-  {
-      max-width: 130px;
-      cursor: pointer;
-      background: #2F323A;
-      color: #fff;
-      font-size: 14px;
-      font-weight: 500;
-      letter-spacing: 1px;
-  }
-  .wrapper .main-container .bottom input
-  {
-    outline: none;
-    background: none;
-    background: #eee;
-    border: none;
-    height: 30px;
-    width: 300px;
-    line-height: 30px;
-    color: #2F323A;
-    font-size: 1em;
-    padding: 0 10px;
-  }
-  .wrapper .main-container .bottom input[type="submit"]
-  {
-    max-width: 130px;
-    cursor: pointer;
-    background: #2F323A;
-    color: #fff;
-    font-size: 14px;
-    font-weight: 500;
-    letter-spacing: 1px;
-  }
+  
   .wrapper.collapse .sidebar .sidebar-menu .item .menu-btn{
     font-size: 23px;
   }
@@ -263,3 +175,117 @@
   .wrapper.collapse .main-container{
     margin-left: 70px;
   }
+.wrapper .main-container .form-box
+{
+  width: 100%;
+  height: 800px;
+  overflow: hidden;
+  background: #fff;
+  display: flex;
+  padding: 10px;
+  justify-content: space-between;
+  transition: .5s;
+  position: relative;
+}
+.wrapper .main-container .form-box .radio
+{
+    position: absolute;
+    top: 15%;
+    left: 40%;
+    transform: translate(-15%,-40%);
+}
+.wrapper .main-container .form-box .radio label
+{
+    padding: 20px;
+    color: #2F323A;
+}
+.wrapper .main-container .form-box .radio input
+{
+    cursor: pointer;
+    margin-left: 5px;
+}
+.wrapper .main-container .form-box .text h2
+{
+  font-weight: 500;
+  color: #2F323A;
+  margin-left: 20px;
+  font-size: 2em;
+  margin-top: 20px;
+}
+.wrapper .main-container .form-box .form
+{
+  position: relative;
+  display: flex;
+}
+.wrapper .main-container .form-box .form .inpuxbox
+{
+  margin-top: 20px;
+  margin-right: 10px;
+}
+.wrapper .main-container .form-box .form .inpuxbox input
+{
+  width: 250px;
+  border-radius: 20px;
+  border: none;
+  box-shadow: none;
+  outline: none;
+  border: 2px solid #2F323A;
+  height: 40px;
+  padding: 10px;
+  line-height: 40px;
+}
+::-webkit-input-placeholder
+{
+  color: #2F323A;
+  font-weight: 500;
+}
+.wrapper .main-container .form-box .form .inpuxbox button
+{
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  background: #2F323A;
+  color: #fff;
+  max-width: 120px;
+  height: 40px;
+  border-radius: 10px;
+}
+.wrapper .main-container .form-box .form .icon
+{
+  line-height: 40px;
+  margin-top: 20px;
+  margin-left: 20px;
+  cursor: pointer;
+}
+.wrapper .main-container .form-box .form .icon .fas
+{
+  margin-right: 20px;
+}
+.wrapper .main-container .form-box .table
+{
+  position: absolute;
+  top: 30%;
+  transform: translateY(-30%);
+  margin: 20px;
+  width: 95%;
+  height: 300px;
+  overflow-y: scroll;
+  background: #2F323A;
+  color: #fff;
+}
+.wrapper .main-container .form-box .table th, td
+{
+  text-align: center;
+  padding: 8px 90px;
+}
+.wrapper .main-container .form-box .table th, td .fas
+{
+  margin-right: 5px;
+  cursor: pointer;
+}
+.wrapper .main-container.hide
+{
+  display: none;
+}  
+                             

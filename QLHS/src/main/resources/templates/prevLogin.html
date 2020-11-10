@@ -5,17 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/styledangnhap.css}">
-    <script src="https://kit.fontawesome.com/db0786b046.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/db0786b046.js"></script>
 </head>
 <body>
     <section>
         <div class="container">
             <div class="user singinBX">
-                <div class="imgBx"><img th:src="@{/img/img1.jpg}"></div>  
+                <div class="imgBx"><img th:src="@{/img/pngtree-student-glyph-black-icon-png-image_691145.jpg}"></div>
                     <div class="formBox">
                         <form th:action="@{/login}" th:object="${account}" method="post">
                             <h2>Đăng Nhập</h2>
-                            <input type="text" name="" th:field="*{tentaikhoan}" placeholder="Email">
+                            <input type="text" name="" th:field="*{tentaikhoan}" placeholder="Tên tài khoản/Email">
                             <input type="password" name="" th:field="*{matkhau}" placeholder="Mật Khẩu">
                             <input type="submit" name="" value="Tiếp Theo">
                             <p class="foret">Bạn Quên <a href="#" onclick="toggleForm();">Mật Khẩu?</a></p>
@@ -27,14 +27,14 @@
                         <form th:action="@{/login}" th:object="${taikhoan}" method="post">
                             <h2>Tìm Mật Khẩu</h2>
                             <input type="text" name="" placeholder="Email">
-                            <a href="nhapmaxacthuc.html" class="tt">Tiếp Theo</a>
+                            <input type="submit" name="" value="Tiếp Theo">
                             <p class="foret">Quay Về <a href="#" onclick="toggleForm();">Đăng Nhập</a></p>
                         </form>
                     </div>
-                    <div class="imgBx"><img th:src="@{/img/img1.jpg}"></div>    
+                    <div class="imgBx"><img th:src="@{/img/pngtree-student-glyph-black-icon-png-image_691145.jpg}"></div>    
             </div>
         </div>
     </section>
-    <script th:src="@{js/login.js}"></script>
+    <script th:src="@{/js/login.js}"></script>
 </body>
 </html>

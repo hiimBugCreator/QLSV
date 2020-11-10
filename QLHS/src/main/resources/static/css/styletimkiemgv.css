@@ -160,7 +160,6 @@
   }
   .wrapper .main-container .edit .input
   {
-    margin-top: 20px;
     align-items: center;
     justify-content: center;
     margin: 20px;
@@ -173,27 +172,19 @@
     color: #fff;
     box-shadow: 0 2px 2px rgba(0, 0, 0, .5);
   }
-  .wrapper .main-container .edit .input
-  {
-    margin-top: 20px;
-    align-items: center;
-    justify-content: center;
-    margin: 20px;
-    text-align: center;
-  }
   .wrapper .main-container .edit .input input
   {
-      outline: none;
-      background: none;
-      background: #eee;
-      border: none;
-      height: 30px;
-      width: 300px;
-      line-height: 30px;
-      font-size: 1em;
-      padding: 0 10px;
-      transition: .5s;
-      margin-top: 10px;
+    outline: none;
+    background: none;
+    background: #eee;
+    border: none;
+    height: 30px;
+    width: 300px;
+    line-height: 30px;
+    font-size: 1em;
+    padding: 0 10px;
+    margin-top: 10px;
+    transition: .5s;
   }
   .wrapper .main-container .edit .bottom
   {

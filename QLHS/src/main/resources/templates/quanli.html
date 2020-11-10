@@ -37,8 +37,8 @@
                         </a>
                         <div class="sub-menu">
                             <a th:href="@{/admin/tatcahocsinh}"><i class="fas fa-user-graduate"></i><span>TatCaHocSinh</span></a>
-                            <a href="themhocsinh.html"><i class="fas fa-user-plus"></i><span>ThemHocSinh</span></a>
-                            <a href="timkiemhocsinh.html"><i class="fas fa-search"></i><span>TìmKiem</span></a>
+                            <a th:href="@{/admin/themhocsinh}"><i class="fas fa-user-plus"></i><span>ThemHocSinh</span></a>
+                            <a th:href="@{/admin/timkiemhocsinh}"><i class="fas fa-search"></i><span>TìmKiem</span></a>
                         </div>
                     </li>
                     <li class="item" id="messages">
@@ -46,9 +46,9 @@
                             <i class="fas fa-chalkboard-teacher"></i><span>GiaoVien</i> <i class="fas fa-chevron-down drop-down"></i></span>
                         </a>
                         <div class="sub-menu">
-                            <a href="#"><i class="fas fa-envelope"></i><span>New</span></a>
-                            <a href="#"><i class="fas fa-envelope-square"></i><span>Sent</span></a>
-                            <a href="#"><i class="fas fa-exclamation-circle"></i><span>Spam</span></a>
+                            <a th:href="@{/admin/tatcagiaovien}"><i class="fas fa-chalkboard-teacher"></i><span>TatCaGiaoVien</span></a>
+                            <a th:href="@{/admin/themgiaovien}"><i class="fas fa-user-plus"></i><span>ThemGiaoVien</span></a>
+                            <a th:href="@{/admin/timkiemgiaovien}"><i class="fas fa-search"></i><span>TimKiem</span></a>
                         </div>
                     </li>
                     <li class="item" id="settings">
@@ -65,6 +65,15 @@
                         <a href="#settings" class="menu-btn">
                             <i class="fas fa-print"></i><span>BangDiem</span>
                         </a>
+                    </li>
+                    <li class="item" id="messagess">
+                        <a href="#messagess" class="menu-btn">
+                            <i class="fas fa-user"></i><span>QuanLiTaiKhoan</i> <i class="fas fa-chevron-down drop-down"></i></span>
+                        </a>
+                        <div class="sub-menu">
+                            <a th:href="@{/admin/tatcataikhoan}"><i class="fas fa-chalkboard-teacher"></i><span>TatCaTaiKhoan</span></a>
+                            <a th:href="@{/admin/themtaikhoan}"><i class="fas fa-user-plus"></i><span>ThemTaiKhoan</span></a>
+                        </div>
                     </li>
                     <li class="item">
                         <a th:href="@{/login/logout}" class="menu-btn">

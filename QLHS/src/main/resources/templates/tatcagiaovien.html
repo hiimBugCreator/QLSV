@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>Sidebar Dashboard Template With Sub Menu</title>
-        <link rel="stylesheet" th:href="@{/css/styletatcahocsinh.css}">
+        <link rel="stylesheet" th:href="@{/css/styletatcagv.css}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
@@ -85,7 +85,7 @@
         <div class="main-container">
             <div class="form-box">
                 <div class="text">
-                    <h2>TatCaHocSinh</h2>
+                    <h2>TatCaGiaoVien</h2>
                 </div>
                 <div class="form">
                     <div class="inpuxbox">
@@ -96,27 +96,28 @@
                 <div class="table">
                     <table>
                         <tr>
-	                        <th>MaHocSinh</th>
-	                        <th>HocVaTen</th>
-	                        <!-- <th>Lop</th>
-	                        <th>SoDienThoai</th>
-	                        <th>Email</th> -->
-	                        <th>TuyChinh</th>
+                        <th>MaGiaoVien</th>
+                        <th>HocVaTen</th>
+                        <!-- <th>Lop</th>
+                        <th>SoDienThoai</th>
+                        <th>Email</th> -->
+                        <th>TuyChinh</th>
                         </tr>
-                        <th:block th:if="${#lists.isEmpty(students)}">
+                        <th:block th:if="${#lists.isEmpty(teachers)}">
 	                        <tr>
 			                        <td colspan="2">No Student available!</td>
 			                </tr>
 	                    </th:block>
-	                    <th:block th:unless="${#lists.isEmpty(students)}">
-	                        <tr th:each="student : ${students}">
-			                   <td th:text="${student.mshs}"></td>
-			                   <td th:text="${student.hoten}"></td>
-			                   <td><a th:href="@{/admin/xemthongtinhocsinh/{id}  (id=${student.id})}" style="color: #fff;"><i class="fas fa-eye"></i></a>
-			                   <a th:href="@{/admin/chinhsuathongtinhocsinh/{id}   (id=${student.id})}" style="color: #fff;"><i class="fas fa-edit"></i></a>
+	                    <th:block th:unless="${#lists.isEmpty(teachers)}">
+	                        <tr th:each="teacher : ${teachers}">
+			                   <td th:text="${teacher.msgv}"></td>
+			                   <td th:text="${teacher.hoten}"></td>
+			                   <td><a th:href="@{/admin/xemthongtinhocsinh/{id}  (id=${teacher.id})}" style="color: #fff;"><i class="fas fa-eye"></i></a>
+			                   <a th:href="@{/admin/chinhsuathongtinhocsinh/{id}   (id=${teacher.id})}" style="color: #fff;"><i class="fas fa-edit"></i></a>
 			                   <i class="fas fa-trash-alt"></i></td>
 		                    </tr>
 	                    </th:block>
+                         
                       </table>
                 </div>
             </div>

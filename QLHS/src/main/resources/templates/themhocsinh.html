@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>Sidebar Dashboard Template With Sub Menu</title>
-        <link rel="stylesheet" th:href="@{/css/styletatcahocsinh.css}">
+        <link rel="stylesheet" th:href="@{/css/stylethemhocsinh.css}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
@@ -82,45 +82,60 @@
             </div>
             <!--sidebar end-->
             <!--main container start-->
-        <div class="main-container">
-            <div class="form-box">
+            <div class="main-container">
                 <div class="text">
-                    <h2>TatCaHocSinh</h2>
+                    <h2>ThemHocSinh</h2>
                 </div>
-                <div class="form">
-                    <div class="inpuxbox">
-                    <input type="text" placeholder="TimKiem">
-                    <button>Tim</button>
-                    </div>
-                </div>
-                <div class="table">
-                    <table>
-                        <tr>
-	                        <th>MaHocSinh</th>
-	                        <th>HocVaTen</th>
-	                        <!-- <th>Lop</th>
-	                        <th>SoDienThoai</th>
-	                        <th>Email</th> -->
-	                        <th>TuyChinh</th>
-                        </tr>
-                        <th:block th:if="${#lists.isEmpty(students)}">
-	                        <tr>
-			                        <td colspan="2">No Student available!</td>
-			                </tr>
-	                    </th:block>
-	                    <th:block th:unless="${#lists.isEmpty(students)}">
-	                        <tr th:each="student : ${students}">
-			                   <td th:text="${student.mshs}"></td>
-			                   <td th:text="${student.hoten}"></td>
-			                   <td><a th:href="@{/admin/xemthongtinhocsinh/{id}  (id=${student.id})}" style="color: #fff;"><i class="fas fa-eye"></i></a>
-			                   <a th:href="@{/admin/chinhsuathongtinhocsinh/{id}   (id=${student.id})}" style="color: #fff;"><i class="fas fa-edit"></i></a>
-			                   <i class="fas fa-trash-alt"></i></td>
-		                    </tr>
-	                    </th:block>
-                      </table>
-                </div>
+                    <form class="edit" th:action="@{/admin/themhocsinh}" th:object="${student}" method="post">
+                        <div class="input">
+                            <div>
+                                <div class="text-box">MaHocSinh</div>
+                                <input type="text" th:field="*{mshs}">
+                            </div>
+                            <div>
+                                <div class="text-box">HoVaTen</div>
+                                <input type="text" th:field="*{hoten}">
+                            </div>
+                            <div>
+                                <div class="text-box">PhuHuynh</div>
+                                <input type="text" th:field="*{tenphuhuynh}" >
+                            </div>
+                            <div>
+                                <div class="text-box">GioiTinh</div>
+                                <select th:field="*{gioitinh}">
+							         <option value="Male">Male</option>
+							         <option value="Female">Female</option>
+                                 </select>
+                            </div>
+                            <div>
+                                <div class="text-box">NgaySinh</div>
+                                <input type="date" name="" th:field="*{ngaysinh}">
+                            </div>
+                            <div>
+                                <div class="text-box">NoiSinh</div>
+                                <input type="text" th:field="*{noisinh}">
+                            </div>
+                            <div>
+                                <div class="text-box">DanToc</div>
+                                <input type="text" th:field="*{dantoc}">
+                            </div>
+                            <div>
+                                <div class="text-box">DiaChi</div>
+                                <input type="text" th:field="*{diachi}">
+                            </div>
+                            <div>
+                                <div class="text-box">UploadAnh <span>(300px X 300px)</span></div>
+                                <input type="submit" value="Choose File">
+                            </div>
+                        </div>
+                        <div class="bottom">
+                            <input type="submit" value="Them">
+                            <input type="reset" value="LamMoi">
+                        </div>    
+                    </form>
             </div>
-        </div>       
+            <!--main container end-->
+        </div>    
         <!--wrapper end-->
         <script th:src="@{/js/menu.js}"></script>
        </body>

@@ -301,42 +301,6 @@
   margin-left: 30px;
   transition: .5s;
 }
-.wrapper .main-container .card4
-{
-  position: absolute;
-  top: 50%;
-  left: 800px;
-    background: #fff;
-    box-shadow: 0 10px 50px rgba(0, 0, 0, .1);
-    width: 300px;
-    height: 200px;
-    padding: 20px;
-    margin: 50px;
-    transition: .5s;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-}
-.wrapper .main-container .card4 .icon
-{
-      font-size: 20px;
-      text-align: center;
-   	margin-left: 90px;
-}
-.wrapper .main-container .card4 .icon i
-{
-    color: #2F323A;
-	
-}
-.wrapper .main-container .card4 .icon p
-{
-    color: #2F323A;
-}
-.wrapper .main-container .card4:hover
-{
-      background: #AFAFAF;
-      transform: translateY(-15px);
-}
 .wrapper .main-container .card3:hover
 {
   transform: translateX(40px);

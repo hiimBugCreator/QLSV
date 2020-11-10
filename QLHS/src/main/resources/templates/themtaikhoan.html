@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>Sidebar Dashboard Template With Sub Menu</title>
-        <link rel="stylesheet" th:href="@{/css/styletatcahocsinh.css}">
+        <link rel="stylesheet" th:href="@{/css/themtaikhoan.css}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
@@ -82,45 +82,47 @@
             </div>
             <!--sidebar end-->
             <!--main container start-->
-        <div class="main-container">
-            <div class="form-box">
-                <div class="text">
-                    <h2>TatCaHocSinh</h2>
-                </div>
-                <div class="form">
-                    <div class="inpuxbox">
-                    <input type="text" placeholder="TimKiem">
-                    <button>Tim</button>
+            <div class="main-container">
+                    <div class="imgBx">
+                        <img th:src="@{/img/img1.jpg}">
                     </div>
-                </div>
-                <div class="table">
-                    <table>
-                        <tr>
-	                        <th>MaHocSinh</th>
-	                        <th>HocVaTen</th>
-	                        <!-- <th>Lop</th>
-	                        <th>SoDienThoai</th>
-	                        <th>Email</th> -->
-	                        <th>TuyChinh</th>
-                        </tr>
-                        <th:block th:if="${#lists.isEmpty(students)}">
-	                        <tr>
-			                        <td colspan="2">No Student available!</td>
-			                </tr>
-	                    </th:block>
-	                    <th:block th:unless="${#lists.isEmpty(students)}">
-	                        <tr th:each="student : ${students}">
-			                   <td th:text="${student.mshs}"></td>
-			                   <td th:text="${student.hoten}"></td>
-			                   <td><a th:href="@{/admin/xemthongtinhocsinh/{id}  (id=${student.id})}" style="color: #fff;"><i class="fas fa-eye"></i></a>
-			                   <a th:href="@{/admin/chinhsuathongtinhocsinh/{id}   (id=${student.id})}" style="color: #fff;"><i class="fas fa-edit"></i></a>
-			                   <i class="fas fa-trash-alt"></i></td>
-		                    </tr>
-	                    </th:block>
-                      </table>
-                </div>
+                    <div class="contentbox">
+                        <div class="fromBx">
+                            <h2>ThemTaiKhoan</h2>
+                            <form th:action="@{/admin/themtaikhoan}" th:object="${account}" method="post">
+                                <div class="inputBx">
+                                    <span>TenTaiKhoan2</span>
+                                    <input type="text" name="" th:field="*{tentaikhoan}">
+                                </div>
+                                <div class="inputBx">
+                                    <span>Email</span>
+                                    <input type="text" name="" th:field="*{email}">
+                                </div>
+                                <div class="inputBx">
+                                    <span>MatKhau</span>
+                                    <input type="text" name="" th:field="*{matkhau}">
+                                </div>
+                                <div class="inputBx">
+                                    <span>Sdt</span>
+                                    <input type="text" name="" th:field="*{sodienthoai}">
+                                </div>
+                                <div class="inputBx">
+                                    <select th:field="*{typeOfAccount}">
+							         <option th:each="type : ${T(qlhs.model.TypeOfAccount).values()}" 
+							          	th:value="${type}"
+							         	th:text="${type}">
+							         </option>
+                                    </select>
+                                </div>
+                                <div class="inputBx">
+                                    <input type="submit" value="Them" name="">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
             </div>
-        </div>       
+            <!--main container end-->
+        </div>    
         <!--wrapper end-->
         <script th:src="@{/js/menu.js}"></script>
        </body>
