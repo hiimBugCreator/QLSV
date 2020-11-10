@@ -17,8 +17,8 @@ public class StudentService {
 	StudentRepository studentRepository;
 	
 	public List<Student> findAll(){
-		var it = studentRepository.findAll();
-		var students = new ArrayList<Student>();
+		Iterable<Student> it = studentRepository.findAll();
+		List<Student> students = new ArrayList<Student>();
 		it.forEach(student -> students.add(student));
 		return students;
 	}

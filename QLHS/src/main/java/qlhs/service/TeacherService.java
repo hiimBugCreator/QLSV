@@ -18,8 +18,8 @@ public class TeacherService {
 	private TeacherRepository teacherRepository;
 	
 	public List<Teacher> findAll(){
-		var it = teacherRepository.findAll();
-		var teachers = new ArrayList<Teacher>();
+		Iterable<Teacher> it = teacherRepository.findAll();
+		List<Teacher> teachers = new ArrayList<Teacher>();
 		it.forEach(teacher -> teachers.add(teacher));
 		return teachers;
 	}
