@@ -38,42 +38,30 @@ public class ExcelHandler {
 	    	Student student = new Student();
 	    	XSSFRow row = worksheet.getRow(i);
 	    	//Tentaikhoan
-//	    	System.out.println(formatter.formatCellValue(row.getCell(0)));
 	    	account.setTentaikhoan(formatter.formatCellValue(row.getCell(0)));
 	    	//matkhau
-//	    	System.out.println(formatter.formatCellValue(row.getCell(1)));
 	    	account.setMatkhau(formatter.formatCellValue(row.getCell(1)));
 	    	//email
-//	    	System.out.println(formatter.formatCellValue(row.getCell(2)));
 	    	account.setEmail(formatter.formatCellValue(row.getCell(2)));
 	    	//sdt
-//	    	System.out.println(formatter.formatCellValue(row.getCell(3)));
 	    	account.setSodienthoai(formatter.formatCellValue(row.getCell(3)));
 	    	//typeofAccount
 	    	account.setTypeOfAccount(TypeOfAccount.Student);
 	    	//hovaten
-//	    	System.out.println(formatter.formatCellValue(row.getCell(4)));
 	    	student.setHoten(formatter.formatCellValue(row.getCell(4)));
 	    	//mshs
-//	    	System.out.println(formatter.formatCellValue(row.getCell(5)));
 	    	student.setMshs(formatter.formatCellValue(row.getCell(5)));
 	    	//tenphuhuynh
-//	    	System.out.println(formatter.formatCellValue(row.getCell(6)));
 	    	student.setTenphuhuynh(formatter.formatCellValue(row.getCell(6)));
 	    	//gioitinh
-//	    	System.out.println(formatter.formatCellValue(row.getCell(7)));
 	    	student.setGioitinh(formatter.formatCellValue(row.getCell(7)));
 	    	//ngaysinh
-//	    	System.out.println(formatter.formatCellValue(row.getCell(8)));
 	    	student.setNgaysinh(formatter.formatCellValue(row.getCell(8)));
 	    	//noisinh
-//	    	System.out.println(formatter.formatCellValue(row.getCell(9)));
 	    	student.setNoisinh(formatter.formatCellValue(row.getCell(9)));
 	    	//dantoc
-//	    	System.out.println(formatter.formatCellValue(row.getCell(10)));
 	    	student.setDantoc(formatter.formatCellValue(row.getCell(10)));
 	    	//diachi
-//	    	System.out.println(formatter.formatCellValue(row.getCell(11)));
 	    	student.setDiachi(formatter.formatCellValue(row.getCell(11)));
 	    	//Student <- Account
 	    	student.setAccount(account);
@@ -100,7 +88,7 @@ public class ExcelHandler {
 	    	//sdt
 	    	account.setSodienthoai(formatter.formatCellValue(row.getCell(3)));
 	    	//typeofAccount
-	    	account.setTypeOfAccount(TypeOfAccount.Student);
+	    	account.setTypeOfAccount(TypeOfAccount.Teacher);
 	    	//hovaten
 	    	teacher.setHoten(formatter.formatCellValue(row.getCell(4)));
 	    	//mshs
