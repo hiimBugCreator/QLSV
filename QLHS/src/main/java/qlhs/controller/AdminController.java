@@ -26,6 +26,7 @@ import qlhs.repository.ChucvuRepository;
 import qlhs.repository.NgaychucvuRepository;
 import qlhs.repository.StudentRepository;
 import qlhs.repository.TeacherRepository;
+import qlhs.service.AccountService;
 import qlhs.service.AuthenticationService;
 import qlhs.service.ChucvuService;
 import qlhs.service.StudentService;
@@ -62,6 +63,9 @@ public class AdminController {
 	@Autowired
 	private NgaychucvuRepository ngaychucvuRepository;
 	
+	@Autowired
+	private AccountService accountService;
+	
 	@GetMapping
 	public ModelAndView index(HttpServletRequest request) {
 		boolean status=request.getSession().getAttribute("user")!=null?true:false;
@@ -92,6 +96,24 @@ public class AdminController {
 			mv.addObject("user",(Account)request.getSession().getAttribute("user"));  
 			
 			mv.setViewName("tatcahocsinh");
+		}else {
+			mv.setViewName("redirect:/login");
+		}
+		return mv;
+	}
+	
+	@GetMapping("/tatcataikhoan")
+	public ModelAndView tatcataikhoan(HttpServletRequest request) {
+		boolean status=request.getSession().getAttribute("user")!=null?true:false;
+		HttpSession session = request.getSession();
+		ModelAndView mv = new ModelAndView();
+		System.out.println(status);
+		if(status) {
+			List<Account>accounts = accountService.findAll();
+			mv.addObject("accounts", accounts);
+			mv.addObject("user",(Account)request.getSession().getAttribute("user"));  
+			
+			mv.setViewName("tatcataikhoan");
 		}else {
 			mv.setViewName("redirect:/login");
 		}
