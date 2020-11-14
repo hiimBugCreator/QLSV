@@ -126,7 +126,14 @@ public class Account {
 		this.typeOfAccount = typeOfAccount;
 	}
 
-
+	public String securePassword(String pwd) {
+		int length = pwd.length();
+		String newpwd = "";
+		for (int i = 0; i < length; i++) {
+			newpwd += "*";
+		}
+		return newpwd;
+	}
 	
 
 

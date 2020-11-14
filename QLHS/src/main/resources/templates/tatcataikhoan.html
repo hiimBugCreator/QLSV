@@ -117,7 +117,7 @@
 			                   <td th:text="${account.id}"></td>
 			                   <td th:text="${account.tentaikhoan}"></td>
 			                   <td th:text="${account.email}"></td>
-			                   <td th:text="${account.matkhau}"></td>
+			                   <td th:text="${account.securePassword(account.matkhau)}"></td>
 			                   <td>
 			                        <a th:href="@{/admin/xemthongtintaikhoan/{id}  (id=${account.id})}" style="color: #fff;"><i class="fas fa-edit"></i></a>
 			                        <th:block th:switch="${account.trangthai}">
