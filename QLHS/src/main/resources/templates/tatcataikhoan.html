@@ -68,7 +68,7 @@
                         </div>
                     </li>
                     <li class="item">
-                        <a href="#" class="menu-btn">
+                        <a th:href="@{/login/logout}" class="menu-btn">
                         <i class="fas fa-sign-out-alt"></i><span>DangXuat</span>
                     </a>
                     </li>
@@ -120,7 +120,17 @@
 			                   <td th:text="${account.matkhau}"></td>
 			                   <td>
 			                        <a th:href="@{/admin/xemthongtintaikhoan/{id}  (id=${account.id})}" style="color: #fff;"><i class="fas fa-edit"></i></a>
-			                        <i class="fas fa-trash-alt"></i>
+			                        <th:block th:switch="${account.trangthai}">
+			                        	<th:block th:case="'1'">
+			                        		<a th:href="@{/admin/lockAccount/{id}  (id=${account.id})}" style="color: #fff;"><i class="fas fa-ban"></i></a>
+			                        	</th:block>
+			                        	<th:block th:case="'0'">
+			                        		<a th:href="@{/admin/unlockAccount/{id}  (id=${account.id})}" style="color: #fff;"><i class="fas fa-unlock"></i></a>
+			                        	</th:block>
+			                        
+			                        </th:block>
+			                        <a></a>
+			                        
 		                        </td>
 		                    </tr>
 	                    </th:block>

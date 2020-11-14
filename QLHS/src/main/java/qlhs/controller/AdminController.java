@@ -131,6 +131,30 @@ public class AdminController {
 		return null;
 	}
 	
+	@GetMapping("/lockAccount/{id}")
+	public ModelAndView lockAccount(@PathVariable String id, HttpServletRequest request) {
+		ModelAndView mv = new ModelAndView();
+		int accountId = Integer.parseInt(id);
+		Account account = accountService.findById(accountId);
+		account.setTrangthai("0");
+		System.out.println(account.getTrangthai());
+		accountRepository.save(account);
+		mv.setViewName("redirect:/admin/tatcataikhoan");
+		return mv;
+	}
+	
+	@GetMapping("/unlockAccount/{id}")
+	public ModelAndView unlockAccount(@PathVariable String id, HttpServletRequest request) {
+		ModelAndView mv = new ModelAndView();
+		int accountId = Integer.parseInt(id);
+		Account account = accountService.findById(accountId);
+		account.setTrangthai("1");
+		System.out.println(account.getTrangthai());
+		accountRepository.save(account);
+		mv.setViewName("redirect:/admin/tatcataikhoan");
+		return mv;
+	}
+	
 	@GetMapping("/tatcagiaovien")
 	public ModelAndView tatcagiaovien(HttpServletRequest request) {
 		boolean status=request.getSession().getAttribute("user")!=null?true:false;
